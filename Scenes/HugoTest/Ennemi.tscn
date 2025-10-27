@@ -1,0 +1,33 @@
+[gd_scene load_steps=6 format=3 uid="uid://bc08nn5jdbwkn"]
+
+[ext_resource type="Script" uid="uid://cluba7blh1r7w" path="res://Scripts/HugoTestScript/EnnemiTest.gd" id="1_qv85p"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hrt7g"]
+
+[sub_resource type="Gradient" id="Gradient_hrt7g"]
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_7yme3"]
+gradient = SubResource("Gradient_hrt7g")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7yme3"]
+size = Vector2(20, 21)
+
+[node name="CharacterBody2D" type="CharacterBody2D" node_paths=PackedStringArray("Hitbox")]
+script = ExtResource("1_qv85p")
+MaxHealth = 10
+Hitbox = NodePath("Hitbox")
+
+[node name="Coll_Shape" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_hrt7g")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(9.536743e-07, 0.50000006)
+scale = Vector2(0.078125, 21)
+texture = SubResource("GradientTexture1D_7yme3")
+
+[node name="Hitbox" type="Area2D" parent="."]
+scale = Vector2(1.1621199, 1.1824881)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_7yme3")
