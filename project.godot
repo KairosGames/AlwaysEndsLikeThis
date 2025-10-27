@@ -11,6 +11,7 @@ config_version=5
 [application]
 
 config/name="AlwaysEndsLikeThis"
+run/main_scene="uid://6gycjwvy4jr3"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -18,4 +19,4 @@ config/icon="res://icon.svg"
 
 window/size/viewport_width=1920
 window/size/viewport_height=1080
-window/size/mode=2
+window/stretch/mode="viewport"
