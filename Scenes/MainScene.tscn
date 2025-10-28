@@ -1,3 +1,15 @@
-[gd_scene format=3 uid="uid://x5kbkwo6v0i2"]
+[gd_scene load_steps=4 format=3 uid="uid://x5kbkwo6v0i2"]
 
-[node name="MainScene" type="Node3D"]
+[ext_resource type="PackedScene" uid="uid://d1iy4k0c6rb3i" path="res://Prefabs/Player.tscn" id="1_hpc76"]
+[ext_resource type="PackedScene" uid="uid://dy3yms0db4tfp" path="res://Prefabs/World.tscn" id="1_nhkr4"]
+[ext_resource type="PackedScene" uid="uid://bg5ake8d05oys" path="res://Prefabs/PlayerCamera2D.tscn" id="1_tr2i4"]
+
+[node name="MainScene" type="Node2D"]
+
+[node name="World" parent="." instance=ExtResource("1_nhkr4")]
+
+[node name="PlayerCamera2D" parent="." node_paths=PackedStringArray("target") instance=ExtResource("1_tr2i4")]
+target = NodePath("../Player")
+
+[node name="Player" parent="." instance=ExtResource("1_hpc76")]
+position = Vector2(232, 923)

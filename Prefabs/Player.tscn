@@ -1,0 +1,37 @@
+[gd_scene load_steps=4 format=3 uid="uid://d1iy4k0c6rb3i"]
+
+[ext_resource type="PackedScene" uid="uid://cqajbt5ke7bty" path="res://Prefabs/Player3D.tscn" id="1_um8lo"]
+[ext_resource type="Script" uid="uid://dgyvbdpxwje2d" path="res://Scripts/Player.gd" id="1_x3d5u"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_um8lo"]
+radius = 50.0
+height = 170.0
+
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("ray_cast")]
+script = ExtResource("1_x3d5u")
+ray_cast = NodePath("RayCast2D")
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+target_position = Vector2(0, 10)
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -85)
+shape = SubResource("CapsuleShape2D_um8lo")
+
+[node name="SubViewportParent" type="Node2D" parent="."]
+position = Vector2(-100, -200)
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="SubViewportParent"]
+offset_right = 200.0
+offset_bottom = 200.0
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportParent/SubViewportContainer"]
+transparent_bg = true
+handle_input_locally = false
+canvas_item_default_texture_filter = 0
+size = Vector2i(200, 200)
+render_target_update_mode = 4
+
+[node name="Player3D" parent="SubViewportParent/SubViewportContainer/SubViewport" instance=ExtResource("1_um8lo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.85, 0)
