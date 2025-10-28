@@ -1,6 +1,15 @@
 [gd_scene load_steps=6 format=3 uid="uid://bc08nn5jdbwkn"]
 
-[ext_resource type="Script" uid="uid://cluba7blh1r7w" path="res://Scripts/HugoTestScript/EnnemiTest.gd" id="1_qv85p"]
+[sub_resource type="GDScript" id="GDScript_7eqay"]
+script/source = "class_name Ennemi
+extends \"res://Scripts/HugoTestScript/Entity.gd\"
+
+func HandleCollision(body: Node2D):
+	if body is Player:
+		var ennemi = body as Player
+		var DamageToTake = ennemi.Damage
+		ReceiveDamage(DamageToTake)
+"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hrt7g"]
 
@@ -13,7 +22,7 @@ gradient = SubResource("Gradient_hrt7g")
 size = Vector2(20, 21)
 
 [node name="CharacterBody2D" type="CharacterBody2D" node_paths=PackedStringArray("Hitbox")]
-script = ExtResource("1_qv85p")
+script = SubResource("GDScript_7eqay")
 MaxHealth = 10
 Hitbox = NodePath("Hitbox")
 

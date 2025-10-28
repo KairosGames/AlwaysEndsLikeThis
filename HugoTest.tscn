@@ -1,13 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://cwvbx3n5nxq86"]
+[gd_scene load_steps=2 format=3 uid="uid://cwvbx3n5nxq86"]
 
-[ext_resource type="PackedScene" uid="uid://du4u8md3vsnu4" path="res://Scenes/HugoTest/PlayerTestHugo.tscn" id="1_skgj8"]
 [ext_resource type="PackedScene" uid="uid://bqshcsqul5xm0" path="res://Scenes/HugoTest/dialogue_system.tscn" id="2_skgj8"]
 
 [node name="Node2D" type="Node2D"]
-
-[node name="player" parent="." node_paths=PackedStringArray("dialogue_system") instance=ExtResource("1_skgj8")]
-position = Vector2(148, 337)
-dialogue_system = NodePath("../DialogueSystem")
 
 [node name="DialogueSystem" parent="." instance=ExtResource("2_skgj8")]
 anchors_preset = 8
