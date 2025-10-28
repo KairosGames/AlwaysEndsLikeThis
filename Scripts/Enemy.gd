@@ -128,3 +128,4 @@ func move_to_position(pos:Vector2, distance:float=100.0)->bool:
 func deal_damages():
 	if attack_area.has_overlapping_bodies():
 		print("DEAL DAMAGES")
+		player.take_damages(1)
