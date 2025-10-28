@@ -1,8 +1,9 @@
-[gd_scene load_steps=20 format=4 uid="uid://ijstcswtyvgp"]
+[gd_scene load_steps=21 format=4 uid="uid://ijstcswtyvgp"]
 
 [ext_resource type="Script" uid="uid://borqw4sr0rd3e" path="res://Scripts/Enemy.gd" id="1_yfbri"]
 [ext_resource type="Texture2D" uid="uid://dhn0oj05ll7fi" path="res://Visuals/Enemy/Rat05_palette.png" id="2_gti1y"]
 [ext_resource type="Shader" uid="uid://6kugmp2xshy4" path="res://Visuals/Shaders/TestShading.gdshader" id="3_yfbri"]
+[ext_resource type="Texture2D" uid="uid://b4yxjr6d4km1u" path="res://icon.svg" id="4_bftkq"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_q68mp"]
 radius = 68.06615
@@ -893,7 +894,13 @@ script = ExtResource("1_yfbri")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_q68mp")
 
-[node name="VisionRayCast2D" type="RayCast2D" parent="."]
+[node name="Vision" type="Node2D" parent="."]
+
+[node name="EnemyRayCast2D2" type="RayCast2D" parent="Vision"]
+target_position = Vector2(400, 0)
+collision_mask = 2
+
+[node name="VisionRayCast2D" type="RayCast2D" parent="Vision"]
 target_position = Vector2(400, 0)
 
 [node name="WalkingRayCast2D" type="RayCast2D" parent="."]
@@ -1054,3 +1061,13 @@ libraries = {
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="SubViewportParent/SubViewportContainer/SubViewport"]
 transform = Transform3D(-0.35371977, 0.93535143, 0, -0.93535143, -0.35371977, 0, 0, 0, 1, 1.55705, 0, 0.8103646)
+
+[node name="LeftSprite2D" type="Sprite2D" parent="."]
+top_level = true
+scale = Vector2(0.4375, 0.4375)
+texture = ExtResource("4_bftkq")
+
+[node name="RightSprite2D" type="Sprite2D" parent="."]
+top_level = true
+scale = Vector2(0.4375, 0.4375)
+texture = ExtResource("4_bftkq")
