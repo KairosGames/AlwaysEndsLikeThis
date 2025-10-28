@@ -1,33 +1,5 @@
-[gd_scene load_steps=5 format=3 uid="uid://cbvmx4ukcgxns"]
+[gd_scene load_steps=2 format=3 uid="uid://cbvmx4ukcgxns"]
 
-[ext_resource type="PackedScene" uid="uid://clp40o287udqo" path="res://Visuals/Enemy/Rat04.glb" id="1_vn81y"]
-[ext_resource type="Shader" uid="uid://6kugmp2xshy4" path="res://Visuals/Shaders/TestShading.gdshader" id="2_xtd8g"]
-[ext_resource type="Texture2D" uid="uid://gex6dnt876p3" path="res://Visuals/Enemy/Rat04_palette.png" id="3_60aep"]
+[ext_resource type="PackedScene" uid="uid://co5i0udkslfv7" path="res://Visuals/Enemy/Rat05.glb" id="1_vn81y"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_p7t2u"]
-render_priority = 0
-shader = ExtResource("2_xtd8g")
-shader_parameter/albedo_texture = ExtResource("3_60aep")
-shader_parameter/shadow_texture = ExtResource("3_60aep")
-shader_parameter/shadow_threshold = 0.3
-shader_parameter/specular_threshold = 0.7
-shader_parameter/specular_strenght = 0.5
-shader_parameter/highlight_threshold = 1.0
-shader_parameter/only_colored_specular = true
-
-[node name="Rat04" instance=ExtResource("1_vn81y")]
-
-[node name="Sword" parent="RAT_Armature/Skeleton3D/Bras_L" index="0"]
-surface_material_override/0 = SubResource("ShaderMaterial_p7t2u")
-
-[node name="queue" parent="RAT_Armature/Skeleton3D/Queue1" index="0"]
-surface_material_override/0 = SubResource("ShaderMaterial_p7t2u")
-
-[node name="Cape" parent="RAT_Armature/Skeleton3D" index="2"]
-surface_material_override/0 = SubResource("ShaderMaterial_p7t2u")
-
-[node name="rat" parent="RAT_Armature/Skeleton3D" index="3"]
-surface_material_override/0 = SubResource("ShaderMaterial_p7t2u")
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." index="2"]
-transform = Transform3D(0.89205796, 0, 0.451921, 0, 1, 0, -0.451921, 0, 0.89205796, 0.7013918, 1.0990988, 0)
+[node name="Rat05" instance=ExtResource("1_vn81y")]
