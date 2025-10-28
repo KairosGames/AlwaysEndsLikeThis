@@ -55,29 +55,7 @@ func enter_state(state: EnemyState):
 			animation_player.play("IDLE")
 		EnemyState.Walking:
 			animation_player.play("WALK")
-			var left_position = global_position
-			for i in range(0, max_walking_point_distance / walking_point_steps):
-				walking_ray_cast_2d.global_position = global_position + Vector2.LEFT * i * walking_point_steps
-				walking_ray_cast_2d.force_raycast_update()
-				walking_vision_ray_cast_2d.force_raycast_update()
-				walking_vision_ray_cast_2d.target_position.x = -i * walking_point_steps
-				if walking_ray_cast_2d.is_colliding() and not walking_vision_ray_cast_2d.is_colliding():
-					left_position = global_position + Vector2.LEFT * i * walking_point_steps
-					
-				left_sprite_2d.global_position = left_position
-				
-			var right_position = global_position
-			for i in range(0, max_walking_point_distance / walking_point_steps):
-				walking_ray_cast_2d.global_position = global_position + Vector2.RIGHT * i * walking_point_steps
-				walking_ray_cast_2d.force_raycast_update()
-				walking_vision_ray_cast_2d.force_raycast_update()
-				walking_vision_ray_cast_2d.target_position.x = i * walking_point_steps
-				if walking_ray_cast_2d.is_colliding() and not walking_vision_ray_cast_2d.is_colliding():
-					right_position = global_position + Vector2.RIGHT * i * walking_point_steps
-					
-				right_sprite_2d.global_position = right_position
-			
-			walking_points = [left_position, right_position]
+			update_walking_points()
 			current_walking_point = get_next_walking_point()
 			
 		EnemyState.Fighting:
@@ -116,16 +94,46 @@ func handle_state(delta: float)->void:
 				enter_state(EnemyState.Idle)
 				
 func get_next_walking_point()->Vector2:
-	walking_points.sort_custom(func(a,b): return global_position.distance_to(a) > global_position.distance_to(b))
-	return walking_points[0]
+	return walking_points[0] if walking_points[0] != current_walking_point else walking_points[1]
+
 	
 func move_to_position(pos:Vector2, distance:float=100.0)->bool:
 	velocity.x = sign(pos.x - global_position.x) * MOVE_SPEED
 	vision_node.scale.x = sign(pos.x - global_position.x)
 	rat.scale.z = -sign(pos.x - global_position.x)
+	walking_vision_ray_cast_2d.target_position.x = 100.0
 	return global_position.distance_to(pos) < distance
 
 func deal_damages():
 	if attack_area.has_overlapping_bodies():
 		print("DEAL DAMAGES")
 		player.take_damages(1)
+
+func update_walking_points():
+	var left_position = global_position
+	for i in range(0, max_walking_point_distance / walking_point_steps):
+		walking_ray_cast_2d.global_position = global_position + Vector2.LEFT * i * walking_point_steps
+		walking_ray_cast_2d.force_raycast_update()
+		if not walking_ray_cast_2d.is_colliding(): break
+		walking_vision_ray_cast_2d.target_position.x = -i * walking_point_steps
+		walking_vision_ray_cast_2d.force_raycast_update()
+		if walking_vision_ray_cast_2d.is_colliding(): 
+			left_position = walking_vision_ray_cast_2d.get_collision_point()
+			break
+		left_position = global_position + Vector2.LEFT * i * walking_point_steps
+		left_sprite_2d.global_position = left_position
+		
+	var right_position = global_position
+	for i in range(0, max_walking_point_distance / walking_point_steps):
+		walking_ray_cast_2d.global_position = global_position + Vector2.RIGHT * i * walking_point_steps
+		walking_ray_cast_2d.force_raycast_update()
+		if not walking_ray_cast_2d.is_colliding(): break
+		walking_vision_ray_cast_2d.target_position.x = i * walking_point_steps
+		walking_vision_ray_cast_2d.force_raycast_update()
+		if walking_vision_ray_cast_2d.is_colliding():
+			right_position = walking_vision_ray_cast_2d.get_collision_point()
+			break
+		right_position = global_position + Vector2.RIGHT * i * walking_point_steps
+		right_sprite_2d.global_position = right_position
+	
+	walking_points = [left_position, right_position]
