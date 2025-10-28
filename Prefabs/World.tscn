@@ -1,7 +1,6 @@
 [gd_scene load_steps=11 format=3 uid="uid://dy3yms0db4tfp"]
 
 [ext_resource type="Texture2D" uid="uid://mmg1ht5p3lhu" path="res://Visuals/Parralax/background.png" id="1_3gc35"]
-[ext_resource type="Texture2D" uid="uid://yajfqwl4j6gh" path="res://Visuals/PlaceHolders/BasicTileset-export.png" id="1_5easo"]
 [ext_resource type="Texture2D" uid="uid://daekastmooo68" path="res://Visuals/Parralax/Back3.png" id="2_oyimv"]
 [ext_resource type="Texture2D" uid="uid://dafsdwrtnhyfe" path="res://Visuals/Parralax/Back2.png" id="3_af1pt"]
 [ext_resource type="Texture2D" uid="uid://d7y6bniphboy" path="res://Visuals/Parralax/Back1.png" id="4_j4vtp"]
