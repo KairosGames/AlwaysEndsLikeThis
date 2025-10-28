@@ -4,7 +4,7 @@ const GRAVITY := 98
 const MOVE_SPEED := 100
 
 @onready var player : Player = $"/root/Game/MainScene/Player"
-@onready var animation_player: AnimationPlayer = $SubViewportParent/SubViewportContainer/SubViewport/Rat04/AnimationPlayer
+@onready var animation_player: AnimationPlayer = $SubViewportParent/SubViewportContainer/SubViewport/Rat/AnimationPlayer
 
 var current_state : EnemyState = EnemyState.Idle
 enum EnemyState {
@@ -51,18 +51,17 @@ func enter_state(state: EnemyState):
 			for i in range(0, max_walking_point_distance / walking_point_steps):
 				walking_ray_cast_2d.global_position = global_position + Vector2.LEFT * i * walking_point_steps
 				walking_ray_cast_2d.force_raycast_update()
-				if not walking_ray_cast_2d.collide_with_areas: break;
+				if not walking_ray_cast_2d.is_colliding(): break;
 				left_position = global_position + Vector2.LEFT * i * walking_point_steps
 				
 			var right_position = global_position.x
 			for i in range(0, max_walking_point_distance / walking_point_steps):
 				walking_ray_cast_2d.global_position = global_position + Vector2.RIGHT * i * walking_point_steps
 				walking_ray_cast_2d.force_raycast_update()
-				if not walking_ray_cast_2d.collide_with_areas: break;
+				if not walking_ray_cast_2d.is_colliding(): break;
 				right_position = global_position + Vector2.RIGHT * i * walking_point_steps
 			walking_points = [left_position, right_position]
 			
-			print(left_position, right_position)
 		EnemyState.Fighting:
 			animation_player.play("WALK")
 		EnemyState.Attacking:
@@ -77,22 +76,26 @@ func handle_state(delta: float)->void:
 		EnemyState.Idle:
 			if is_on_floor() and Time.get_ticks_msec() - enter_state_time > current_idle_time:
 				enter_state(EnemyState.Walking)
-			#if vision_ray_cast_2d.collide_with_bodies:
-				#enter_state(EnemyState.Fighting)
+			if vision_ray_cast_2d.is_colliding():
+				enter_state(EnemyState.Fighting)
 				return;
 		EnemyState.Walking:
 			var moved = move_to_position(current_walking_point)
 			if moved:
 				current_walking_point = get_next_walking_point()
-			if vision_ray_cast_2d.collide_with_bodies:
+			if vision_ray_cast_2d.is_colliding():
 				enter_state(EnemyState.Fighting)
 				return;
 		EnemyState.Fighting:
+			if not vision_ray_cast_2d.is_colliding():
+				enter_state(EnemyState.Walking)
+				return;
 			var moved = move_to_position(player.global_position, 200.0)
 			if moved: enter_state(EnemyState.Attacking)
 		EnemyState.Attacking:
 			if not animation_player.is_playing():
 				enter_state(EnemyState.Idle)
+				
 func get_next_walking_point()->Vector2:
 	walking_points.sort_custom(func(a,b): return global_position.direction_to(a) > global_position.direction_to(b))
 	return walking_points[0]
