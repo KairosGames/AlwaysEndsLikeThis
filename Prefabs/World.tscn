@@ -1,9 +1,10 @@
 [gd_scene load_steps=4 format=3 uid="uid://dy3yms0db4tfp"]
 
-[ext_resource type="Texture2D" uid="uid://3oxx1jujeicw" path="res://Visuals/PlaceHolders/HaieTileset01.png" id="1_5easo"]
+[ext_resource type="Texture2D" uid="uid://yajfqwl4j6gh" path="res://Visuals/PlaceHolders/BasicTileset-export.png" id="1_5easo"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3gc35"]
 texture = ExtResource("1_5easo")
+texture_region_size = Vector2i(64, 64)
 0:0/0 = 0
 0:0/0/terrain_set = 0
 0:0/0/terrain = 0
@@ -335,9 +336,10 @@ texture = ExtResource("1_5easo")
 8:4/0/terrains_peering_bit/top_side = 0
 
 [sub_resource type="TileSet" id="TileSet_oyimv"]
+tile_size = Vector2i(64, 64)
 terrain_set_0/mode = 0
 terrain_set_0/terrain_0/name = "Terrain 0"
-terrain_set_0/terrain_0/color = Color(0.6815392, 1.35728715e-05, 0.47224456, 1)
+terrain_set_0/terrain_0/color = Color(0.7232357, 0, 0.21277732, 1)
 sources/0 = SubResource("TileSetAtlasSource_3gc35")
 
 [node name="World" type="Node2D"]

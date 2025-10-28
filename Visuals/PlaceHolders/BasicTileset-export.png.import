@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://3oxx1jujeicw"
-path="res://.godot/imported/HaieTileset01.png-ecf28eb9288197ac97a527136a5cd4d2.ctex"
+uid="uid://yajfqwl4j6gh"
+path="res://.godot/imported/BasicTileset-export.png-666e93206af2a27c4dda3c16bc9f765b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Visuals/PlaceHolders/HaieTileset01.png"
-dest_files=["res://.godot/imported/HaieTileset01.png-ecf28eb9288197ac97a527136a5cd4d2.ctex"]
+source_file="res://Visuals/PlaceHolders/BasicTileset-export.png"
+dest_files=["res://.godot/imported/BasicTileset-export.png-666e93206af2a27c4dda3c16bc9f765b.ctex"]
 
 [params]
 
