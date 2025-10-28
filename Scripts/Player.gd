@@ -7,6 +7,7 @@ class_name Player extends CharacterBody2D
 @export var max_speed: float = 500.0
 @export var acceleration: float = 1000.0
 @export var braking_strength: float = 3000.0
+@export var jump_strength: float = 1200.0
 
 @export_category("Gravity")
 @export var max_fall_speed: float = 2000.0
@@ -15,15 +16,20 @@ class_name Player extends CharacterBody2D
 var move_dir: Vector2 = Vector2.ZERO
 
 
-func _physics_process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	get_input()
+
+
+func _physics_process(delta: float) -> void:
 	move_player(delta)
 
 
 func get_input():
-	move_dir = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
+	move_dir = Input.get_vector("Left", "Right", "Up", "Down")
 	if move_dir.length() < 0.2:
 		move_dir = Vector2.ZERO
+	if Input.is_action_just_pressed("Jump"):
+		jump()
 
 
 func move_player(delta: float):
@@ -48,12 +54,12 @@ func handle_acceleration(delta: float):
 
 
 func handle_gravity(delta: float):
-	if ray_cast.is_colliding():
-		if velocity.y < 0.0:
-			velocity.y -= braking_strength
-			if velocity.y > 0.0: velocity.y = 0.0
-		return
-	
-	velocity.y += gravity * delta
-	if velocity.y < -max_fall_speed:
-		velocity.y = -max_fall_speed
+	if not is_on_floor():
+		velocity.y += gravity * delta
+		if velocity.y < -max_fall_speed:
+			velocity.y = -max_fall_speed
+
+
+func jump():
+	if is_on_floor():
+		velocity.y = -jump_strength
