@@ -1,15 +1,22 @@
 [gd_scene load_steps=3 format=3 uid="uid://cwvbx3n5nxq86"]
 
 [ext_resource type="PackedScene" uid="uid://du4u8md3vsnu4" path="res://Scenes/HugoTest/PlayerTestHugo.tscn" id="1_skgj8"]
-[ext_resource type="PackedScene" uid="uid://bc08nn5jdbwkn" path="res://Scenes/HugoTest/Ennemi.tscn" id="2_vk7u0"]
+[ext_resource type="PackedScene" uid="uid://bqshcsqul5xm0" path="res://Scenes/HugoTest/dialogue_system.tscn" id="2_skgj8"]
 
 [node name="Node2D" type="Node2D"]
 
-[node name="Player" parent="." instance=ExtResource("1_skgj8")]
-position = Vector2(78, 193)
-scale = Vector2(2.682042, 2.9397058)
-Speed = 100
+[node name="player" parent="." node_paths=PackedStringArray("dialogue_system") instance=ExtResource("1_skgj8")]
+position = Vector2(148, 337)
+dialogue_system = NodePath("../DialogueSystem")
 
-[node name="Ennemi" parent="." instance=ExtResource("2_vk7u0")]
-position = Vector2(300.00003, 178.99998)
-scale = Vector2(7.8954005, 6.9922442)
+[node name="DialogueSystem" parent="." instance=ExtResource("2_skgj8")]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 590.0
+offset_top = 648.0
+offset_right = 590.0
+offset_bottom = 648.0
+dialogues_list = Array[String](["Sois le bienvenu dans mon antre, voyageur. Tu as réussi à parvenir jusque là. Sauras-tu faire preuve de la même ruse pour me battre et te montrer digne de mon trésor ? Je te souhaite bonne chance ", "Te revoilà, aventurier ! Quel courage ! Puisse la chance être de ton côté, cette fois. En garde ! ", "Encore toi ? Ta détermination est admirable, je te l’accorde. Peut être que cette fois sera la bonne. ", "Tu as encore cette étincelle dans le regard ! Je commence sincèrement à me demander si c’est du courage ou de la folie… Hmpf, bon courage.", "Tu ne t’arrêtes donc jamais ? Avec tout le respect, tu as un sacré pet au casque. Non, sincèrement, je commence à m’inquiéter pour toi.", "Bon bah voilà, tu viens. Je te tue, tu reviens. Je te re-tue, tu re-reviens. On s’ennuie. Enfin… je ne sais pas. Toi, visiblement ça t’amuse.", "T’es sûr qu’il y a pas genre d’autres donjons à faire ? Des trucs à ton niveau ? Même d’autres activités… t’as essayé l’escalade ?", "Non mais, remets-toi en question… A ton grand âge tu t’obstines comme ça ? Alors que tu ne fais aucun progrès ? Tu commences à me soûler pour de vrai, tu sais.", "Oh par pitié, lâche moi. Je t’en SUPPLIE. Tu casses la tête, j’en ai ma claque… …Tu sais quoi ? Tu as gagné. Oui, tu as bien entendu. Le trésor est tien ! Je n’ai qu’une demande, ne remets plus jamais un pied dans ce donjon. "])

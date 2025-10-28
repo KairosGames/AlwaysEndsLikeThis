@@ -1,0 +1,122 @@
+[gd_scene load_steps=8 format=3 uid="uid://bqshcsqul5xm0"]
+
+[ext_resource type="Script" uid="uid://crej3oad6du6m" path="res://Scripts/dialogue_system_test.gd" id="1_l1sa1"]
+[ext_resource type="Texture2D" uid="uid://bgxrl60s3xjxn" path="res://Sprites/dialogbox.png" id="2_4i6ly"]
+[ext_resource type="FontFile" uid="uid://bn4blc6gnxne4" path="res://Font/Jersey15-Regular.ttf" id="3_vng5v"]
+[ext_resource type="Script" uid="uid://i1rxpvmn6soe" path="res://Scripts/Anim_Text_Effect.gd" id="3_xab5t"]
+
+[sub_resource type="Animation" id="Animation_vng5v"]
+resource_name = "Appear_Text_Effect"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureRect/Control/DialogueText:visible_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="Animation" id="Animation_wkayp"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureRect/Control/DialogueText:visible_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_al885"]
+_data = {
+&"Appear_Text_Effect": SubResource("Animation_vng5v"),
+&"RESET": SubResource("Animation_wkayp")
+}
+
+[node name="Control" type="Control" node_paths=PackedStringArray("_text")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_l1sa1")
+_text = NodePath("TextureRect/Control/DialogueText")
+dialogues_list = Array[String](["Sois le bienvenu dans mon antre, voyageur. Tu as réussi à parvenir jusqu’à là. Sauras-tu faire preuve de la même ruse pour me battre et te montrer digne de mon trésor ? Je te souhaite bonne chance", "Te revoilà, aventurier ! Quel courage ! Puisse la chance être de ton côté, cette fois. En garde ! ", "Encore toi ? Ta détermination est admirable, je te l’accorde. Peut être que cette fois sera la bonne. "])
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -323.438
+offset_top = -176.0
+offset_right = 254.0
+offset_bottom = -39.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("2_4i6ly")
+
+[node name="Control" type="Control" parent="TextureRect"]
+anchors_preset = 0
+offset_left = 16.0
+offset_top = 32.0
+offset_right = 496.0
+offset_bottom = 109.0
+scale = Vector2(1, 0.92)
+
+[node name="DialogueText" type="RichTextLabel" parent="TextureRect/Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.1240001
+anchor_bottom = 1.1290001
+offset_left = 3.4379883
+offset_top = 4.3478203
+offset_right = -29.804626
+offset_bottom = 8.7192
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.0587082, 1)
+theme_override_fonts/normal_font = ExtResource("3_vng5v")
+theme_override_font_sizes/normal_font_size = 21
+bbcode_enabled = true
+text = "Oh par pitié, lâche moi. Je t’en SUPPLIE. Tu casses la tête,
+j’en ai ma claque...Tu sais quoi ? Tu as gagné. Oui, tu as bien entendu. Le trésor est tien ! Je n’ai qu’une demande, ne remets plus jamais un pied dans ce donjon. "
+fit_content = true
+scroll_active = false
+vertical_alignment = 1
+visible_characters = 0
+visible_ratio = 0.0
+
+[node name="BossName" type="RichTextLabel" parent="TextureRect"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 35.43799
+offset_top = -2.0
+offset_right = -426.562
+offset_bottom = 34.0
+grow_horizontal = 2
+theme_override_fonts/normal_font = ExtResource("3_vng5v")
+theme_override_font_sizes/normal_font_size = 27
+bbcode_enabled = true
+text = "Boss"
+fit_content = true
+scroll_active = false
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_al885")
+}
+script = ExtResource("3_xab5t")
