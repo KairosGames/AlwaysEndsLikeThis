@@ -1,0 +1,47 @@
+[gd_scene load_steps=4 format=3 uid="uid://ijstcswtyvgp"]
+
+[ext_resource type="Script" uid="uid://borqw4sr0rd3e" path="res://Scripts/Enemy.gd" id="1_yfbri"]
+[ext_resource type="PackedScene" uid="uid://cbvmx4ukcgxns" path="res://Prefabs/Rat3D.tscn" id="3_yfbri"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_q68mp"]
+radius = 68.06615
+
+[node name="Enemy" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 11
+script = ExtResource("1_yfbri")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_q68mp")
+
+[node name="VisionRayCast2D" type="RayCast2D" parent="."]
+target_position = Vector2(400, 0)
+
+[node name="WalkingRayCast2D" type="RayCast2D" parent="."]
+target_position = Vector2(0, 200)
+collision_mask = 8
+collide_with_areas = true
+
+[node name="SubViewportParent" type="Node2D" parent="."]
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="SubViewportParent"]
+offset_left = -101.0
+offset_top = -88.0
+offset_right = 99.0
+offset_bottom = 112.0
+metadata/_edit_use_anchors_ = true
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportParent/SubViewportContainer"]
+own_world_3d = true
+transparent_bg = true
+handle_input_locally = false
+canvas_item_default_texture_filter = 0
+size = Vector2i(200, 200)
+render_target_update_mode = 4
+
+[node name="Camera3D" type="Camera3D" parent="SubViewportParent/SubViewportContainer/SubViewport"]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0.97173005, 0.12164813, 0.0027929544)
+projection = 1
+size = 2.0
+
+[node name="Rat04" parent="SubViewportParent/SubViewportContainer/SubViewport" instance=ExtResource("3_yfbri")]
