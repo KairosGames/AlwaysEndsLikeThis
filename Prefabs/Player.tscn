@@ -8,6 +8,7 @@ radius = 50.0
 height = 170.0
 
 [node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("ray_cast")]
+collision_mask = 15
 script = ExtResource("1_x3d5u")
 ray_cast = NodePath("RayCast2D")
 
@@ -27,6 +28,7 @@ offset_right = 200.0
 offset_bottom = 200.0
 
 [node name="SubViewport" type="SubViewport" parent="SubViewportParent/SubViewportContainer"]
+own_world_3d = true
 transparent_bg = true
 handle_input_locally = false
 canvas_item_default_texture_filter = 0

@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://cbvmx4ukcgxns"]
+
+[ext_resource type="PackedScene" uid="uid://co5i0udkslfv7" path="res://Visuals/Enemy/Rat05.glb" id="1_vn81y"]
+
+[node name="Rat05" instance=ExtResource("1_vn81y")]
