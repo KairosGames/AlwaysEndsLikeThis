@@ -91,8 +91,9 @@ scale = Vector2(1.0587082, 1)
 theme_override_fonts/normal_font = ExtResource("3_vng5v")
 theme_override_font_sizes/normal_font_size = 21
 bbcode_enabled = true
-text = "Oh par pitié, lâche moi. Je t’en SUPPLIE. Tu casses la tête,
-j’en ai ma claque...Tu sais quoi ? Tu as gagné. Oui, tu as bien entendu. Le trésor est tien ! Je n’ai qu’une demande, ne remets plus jamais un pied dans ce donjon. "
+text = "Ne sois pas trop dur avec toi-même. Tu n’étais pas assez équipé, et j’aurais dû le savoir. Tiens, prend cette épée, ça sera plus facile avec.
+
+"
 fit_content = true
 scroll_active = false
 vertical_alignment = 1

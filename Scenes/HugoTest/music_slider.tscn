@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://dprxajx8c74mm"]
+
+[ext_resource type="Script" uid="uid://dgwin41ha1cyv" path="res://Scripts/music_slider.gd" id="1_x31l2"]
+
+[node name="MusicSlider" type="HSlider"]
+offset_right = 195.0
+offset_bottom = 16.0
+max_value = 1.0
+step = 0.001
+script = ExtResource("1_x31l2")

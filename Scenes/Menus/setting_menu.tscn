@@ -1,0 +1,130 @@
+[gd_scene load_steps=6 format=3 uid="uid://cnkqxe2ath8s1"]
+
+[ext_resource type="FontFile" uid="uid://bn4blc6gnxne4" path="res://Font/Jersey15-Regular.ttf" id="1_37uno"]
+[ext_resource type="PackedScene" uid="uid://dprxajx8c74mm" path="res://Scenes/HugoTest/music_slider.tscn" id="2_kfal7"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_37uno"]
+bg_color = Color(0.15294118, 0.15294118, 0.15294118, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_pwmho"]
+font = ExtResource("1_37uno")
+font_size = 31
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_w0m1o"]
+font = ExtResource("1_37uno")
+font_color = Color(0, 0, 0, 1)
+
+[node name="SettingMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_37uno")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -475.0
+offset_top = -216.0
+offset_right = -404.63635
+offset_bottom = -141.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(12.08, 3.2799993)
+alignment = 1
+
+[node name="ColorRect" type="ColorRect" parent="Panel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 75.925)
+layout_mode = 2
+color = Color(0.39308554, 0.3930855, 0.39308548, 1)
+
+[node name="ColorRect" type="ColorRect" parent="Panel/VBoxContainer/ColorRect"]
+custom_minimum_size = Vector2(64.67, 64.64)
+layout_mode = 0
+offset_left = 2.7272763
+offset_top = 5.030489
+offset_right = 67.49728
+offset_bottom = 45.030487
+
+[node name="VolumeLabel" type="Label" parent="Panel/VBoxContainer/ColorRect/ColorRect"]
+layout_mode = 0
+offset_left = 4.4747095
+offset_top = -20.884153
+offset_right = 97.47471
+offset_bottom = 15.115847
+scale = Vector2(0.2581818, 1)
+theme_override_font_sizes/font_size = 21
+text = "Volume"
+label_settings = SubResource("LabelSettings_pwmho")
+
+[node name="MasterVolume" type="Label" parent="Panel/VBoxContainer/ColorRect/ColorRect"]
+layout_mode = 0
+offset_left = 5.219743
+offset_top = 7.774392
+offset_right = 93.21974
+offset_bottom = 30.774391
+scale = Vector2(0.2581818, 1)
+theme_override_font_sizes/font_size = 21
+text = "Master Volume"
+label_settings = SubResource("LabelSettings_w0m1o")
+
+[node name="MusicVolume" type="Label" parent="Panel/VBoxContainer/ColorRect/ColorRect"]
+layout_mode = 0
+offset_left = 5.0541797
+offset_top = 26.371956
+offset_right = 93.05418
+offset_bottom = 49.371956
+scale = Vector2(0.2581818, 1)
+theme_override_font_sizes/font_size = 21
+text = "Music Volume"
+label_settings = SubResource("LabelSettings_w0m1o")
+
+[node name="MusicVolume2" type="Label" parent="Panel/VBoxContainer/ColorRect/ColorRect"]
+layout_mode = 0
+offset_left = 5.219743
+offset_top = 45.57928
+offset_right = 127.21974
+offset_bottom = 68.579285
+scale = Vector2(0.2581818, 1)
+theme_override_font_sizes/font_size = 21
+text = "Sound Effect Volume"
+label_settings = SubResource("LabelSettings_w0m1o")
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -938.0
+offset_top = -151.0
+offset_right = -642.0
+offset_bottom = -7.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_constants/separation = 44
+
+[node name="Master" parent="Panel/VBoxContainer2" instance=ExtResource("2_kfal7")]
+layout_mode = 2
+
+[node name="Musc" parent="Panel/VBoxContainer2" instance=ExtResource("2_kfal7")]
+layout_mode = 2
+
+[node name="Sfx" parent="Panel/VBoxContainer2" instance=ExtResource("2_kfal7")]
+layout_mode = 2
