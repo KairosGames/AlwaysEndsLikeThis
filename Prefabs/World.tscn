@@ -1,6 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://dy3yms0db4tfp"]
+[gd_scene load_steps=10 format=3 uid="uid://dy3yms0db4tfp"]
 
+[ext_resource type="Texture2D" uid="uid://mmg1ht5p3lhu" path="res://Visuals/Parralax/background.png" id="1_3gc35"]
 [ext_resource type="Texture2D" uid="uid://yajfqwl4j6gh" path="res://Visuals/PlaceHolders/BasicTileset-export.png" id="1_5easo"]
+[ext_resource type="Texture2D" uid="uid://daekastmooo68" path="res://Visuals/Parralax/Back3.png" id="2_oyimv"]
+[ext_resource type="Texture2D" uid="uid://dafsdwrtnhyfe" path="res://Visuals/Parralax/Back2.png" id="3_af1pt"]
+[ext_resource type="Texture2D" uid="uid://d7y6bniphboy" path="res://Visuals/Parralax/Back1.png" id="4_j4vtp"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3gc35"]
 texture = ExtResource("1_5easo")
@@ -343,12 +347,45 @@ terrain_set_0/terrain_0/color = Color(0.7232357, 0, 0.21277732, 1)
 sources/0 = SubResource("TileSetAtlasSource_3gc35")
 
 [sub_resource type="BoxMesh" id="BoxMesh_5easo"]
-size = Vector3(2000, 30, 1)
+size = Vector3(4000, 30, 1)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3gc35"]
-size = Vector2(2000, 30)
+size = Vector2(4000, 30)
 
 [node name="World" type="Node2D"]
+
+[node name="Background" type="Node2D" parent="."]
+position = Vector2(960, 540)
+
+[node name="Parallax2D" type="Parallax2D" parent="Background"]
+scroll_scale = Vector2(0, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Background/Parallax2D"]
+texture = ExtResource("1_3gc35")
+
+[node name="Parallax2D2" type="Parallax2D" parent="Background"]
+scroll_scale = Vector2(0.25, 0)
+repeat_size = Vector2(3840, 0)
+repeat_times = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Background/Parallax2D2"]
+texture = ExtResource("2_oyimv")
+
+[node name="Parallax2D3" type="Parallax2D" parent="Background"]
+scroll_scale = Vector2(0.5, 0)
+repeat_size = Vector2(3840, 0)
+repeat_times = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Background/Parallax2D3"]
+texture = ExtResource("3_af1pt")
+
+[node name="Parallax2D4" type="Parallax2D" parent="Background"]
+scroll_scale = Vector2(0.75, 0)
+repeat_size = Vector2(3840, 0)
+repeat_times = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Background/Parallax2D4"]
+texture = ExtResource("4_j4vtp")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 tile_set = SubResource("TileSet_oyimv")

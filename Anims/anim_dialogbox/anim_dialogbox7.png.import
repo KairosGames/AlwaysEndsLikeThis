@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://daekastmooo68"
-path="res://.godot/imported/Back3.png-5cc2e769505784e70a3d8ef9fa02ff75.ctex"
+uid="uid://cst60g58k44yk"
+path="res://.godot/imported/anim_dialogbox7.png-e0dd31036a15468ff5e70823c994a87d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Visuals/Parralax/Back3.png"
-dest_files=["res://.godot/imported/Back3.png-5cc2e769505784e70a3d8ef9fa02ff75.ctex"]
+source_file="res://Anims/anim_dialogbox/anim_dialogbox7.png"
+dest_files=["res://.godot/imported/anim_dialogbox7.png-e0dd31036a15468ff5e70823c994a87d.ctex"]
 
 [params]
 
