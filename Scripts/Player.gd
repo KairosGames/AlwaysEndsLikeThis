@@ -13,7 +13,13 @@ class_name Player extends CharacterBody2D
 @export var max_fall_speed: float = 2000.0
 @export var gravity: float = 4000.0
 
+@export_category("Gameplay")
+@export var health: int = 100
+
 var move_dir: Vector2 = Vector2.ZERO
+
+var is_alive: bool = true
+var is_controlled_by_player: bool = false
 
 
 func _process(_delta: float) -> void:
@@ -63,3 +69,16 @@ func handle_gravity(delta: float):
 func jump():
 	if is_on_floor():
 		velocity.y = -jump_strength
+
+
+func take_damages(damages: int):
+	health -= damages
+	if health <= 0:
+		health = 0
+		is_alive = false
+		is_controlled_by_player = false
+		die()
+
+
+func die():
+	print("player is dead")
