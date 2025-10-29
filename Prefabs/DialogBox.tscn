@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://c7ysxlsh14huv" path="res://Scripts/DialogBox.gd" id="1_7prik"]
 [ext_resource type="Script" uid="uid://cggpfu0vhvccc" path="res://Scripts/NinePatchRectScaled.gd" id="2_6mc8x"]
-[ext_resource type="Texture2D" uid="uid://cu5cjl1ymn7j6" path="res://Sprites/dialogbox-ninepatchrect.png" id="3_svrph"]
+[ext_resource type="PackedScene" uid="uid://xoyaixo8qn4o" path="res://Prefabs/NinePatchScaled.tscn" id="2_svrph"]
 [ext_resource type="FontFile" uid="uid://bn4blc6gnxne4" path="res://Font/Jersey15-Regular.ttf" id="4_ldc4v"]
 [ext_resource type="Texture2D" uid="uid://bqbghofp5jti" path="res://Sprites/arrow.png" id="5_4lnly"]
 [ext_resource type="Texture2D" uid="uid://dfogragsx2vt7" path="res://Sprites/button- ninepatchrect.png" id="6_6mc8x"]
@@ -40,24 +40,9 @@ offset_bottom = -120.0
 grow_horizontal = 2
 grow_vertical = 0
 
-[node name="Control" type="Container" parent="Container/Control"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-script = ExtResource("2_6mc8x")
-tile_scale = 10.0
-
-[node name="NinePatchRect" type="NinePatchRect" parent="Container/Control/Control"]
-texture_filter = 1
-layout_mode = 2
-texture = ExtResource("3_svrph")
-patch_margin_left = 4
-patch_margin_top = 4
-patch_margin_right = 4
-patch_margin_bottom = 4
+[node name="NinePatchScaled" parent="Container/Control" instance=ExtResource("2_svrph")]
+layout_mode = 0
+anchors_preset = 0
 
 [node name="Label" type="Label" parent="Container/Control"]
 layout_mode = 1
