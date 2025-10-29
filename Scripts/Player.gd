@@ -122,7 +122,6 @@ func take_damages(damages: int):
 	health -= damages
 	if health <= 0:
 		health = 0
-		is_alive = false
 		is_controlled_by_player = false
 		die()
 		return
@@ -147,5 +146,11 @@ func attack():
 
 
 func die():
-	is_alive = false
-	animation_player.play("DEATH")
+	if is_alive:
+		is_alive = false
+		animation_player.speed_scale = 2.0
+		animation_player.play("DEATH")
+		await get_tree().create_timer(1.0).timeout
+		await game.scene_transition.show_transition()
+		game.main_scene.load_world(game.main_scene.worlds[game.main_scene.current_world_index])
+		is_alive = true

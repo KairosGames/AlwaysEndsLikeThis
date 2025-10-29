@@ -24,7 +24,7 @@ enum EnemyState {
 @onready var walking_ray_cast_2d: RayCast2D = $WalkingRayCast2D
 
 @export var health_bar: ProgressBar
-var health: int = 100
+var health: int = 25
 
 var enter_state_time := 0
 
@@ -111,7 +111,7 @@ func move_to_position(pos:Vector2, distance:float=100.0)->bool:
 func deal_damages():
 	if attack_area.has_overlapping_bodies():
 		print("DEAL DAMAGES")
-		player.take_damages(1)
+		player.take_damages(25)
 
 func update_walking_points():
 	var left_position = global_position
