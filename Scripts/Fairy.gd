@@ -1,7 +1,6 @@
 class_name Fairy extends Node2D
 
 @onready var game: Game = $/root/Game
-
 @export var target: Node2D
 
 var first_pos: Vector2

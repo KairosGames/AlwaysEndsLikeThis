@@ -31,12 +31,13 @@ corner_radius_bottom_right = 6
 corner_radius_bottom_left = 6
 corner_detail = 6
 
-[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("ray_cast", "player3D", "animation_player")]
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("ray_cast", "player3D", "animation_player", "health_bar")]
 collision_mask = 15
 script = ExtResource("1_x3d5u")
 ray_cast = NodePath("RayCast2D")
 player3D = NodePath("SubViewportParent/SubViewportContainer/SubViewport/Player3D/PersoJam_Textured01")
 animation_player = NodePath("SubViewportParent/SubViewportContainer/SubViewport/Player3D/PersoJam_Textured01/AnimationPlayer")
+health_bar = NodePath("HealthBar")
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
 target_position = Vector2(0, 10)

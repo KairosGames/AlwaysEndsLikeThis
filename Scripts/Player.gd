@@ -6,6 +6,7 @@ class_name Player extends CharacterBody2D
 @export var ray_cast: RayCast2D
 @export var player3D: Node3D
 @export var animation_player: AnimationPlayer
+@export var health_bar: ProgressBar
 
 @export_category("Player Movement")
 @export var max_speed: float = 500.0
@@ -22,7 +23,6 @@ class_name Player extends CharacterBody2D
 @export var strength_attack: int = 10
 
 var move_dir: Vector2 = Vector2.ZERO
-
 var is_alive: bool = true
 var is_controlled_by_player: bool = false
 
@@ -33,6 +33,13 @@ func _process(_delta: float) -> void:
 
 func _physics_process(delta: float) -> void:
 	move_player(delta)
+
+
+func set_player_stats(p_health: int, p_attack: int):
+	health = p_health
+	strength_attack = p_attack
+	health_bar.max_value = health
+	health_bar.value = health
 
 
 func get_input():
