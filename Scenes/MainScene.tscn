@@ -2,10 +2,12 @@
 
 [ext_resource type="PackedScene" uid="uid://d1iy4k0c6rb3i" path="res://Prefabs/Player.tscn" id="1_hpc76"]
 [ext_resource type="PackedScene" uid="uid://dy3yms0db4tfp" path="res://Prefabs/World.tscn" id="1_nhkr4"]
+[ext_resource type="Script" uid="uid://das80wljj04lw" path="res://Scripts/MainScene.gd" id="1_qxria"]
 [ext_resource type="PackedScene" uid="uid://bg5ake8d05oys" path="res://Prefabs/PlayerCamera2D.tscn" id="1_tr2i4"]
-[ext_resource type="PackedScene" uid="uid://ijstcswtyvgp" path="res://Prefabs/Enemy.tscn" id="4_7rqgy"]
 
 [node name="MainScene" type="Node2D"]
+script = ExtResource("1_qxria")
+worlds = Array[PackedScene]([ExtResource("1_nhkr4")])
 
 [node name="World" parent="." instance=ExtResource("1_nhkr4")]
 
@@ -14,15 +16,3 @@ target = NodePath("../Player")
 
 [node name="Player" parent="." instance=ExtResource("1_hpc76")]
 position = Vector2(232, 923)
-
-[node name="Enemy" parent="." instance=ExtResource("4_7rqgy")]
-position = Vector2(1338, 867)
-
-[node name="Enemy2" parent="." instance=ExtResource("4_7rqgy")]
-position = Vector2(3012, 1062)
-
-[node name="Enemy3" parent="." instance=ExtResource("4_7rqgy")]
-position = Vector2(3668, 943)
-
-[node name="Enemy4" parent="." instance=ExtResource("4_7rqgy")]
-position = Vector2(4253, 1217)

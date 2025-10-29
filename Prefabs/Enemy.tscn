@@ -916,10 +916,11 @@ shape = SubResource("CapsuleShape2D_bftkq")
 [node name="VisionNode" type="Node2D" parent="."]
 
 [node name="WalkingVisionRayCast2D" type="RayCast2D" parent="VisionNode"]
-target_position = Vector2(400, 0)
+target_position = Vector2(100, 0)
 collision_mask = 10
 
 [node name="PlayerVisionRayCast2D" type="RayCast2D" parent="VisionNode"]
+visible = false
 target_position = Vector2(400, 0)
 
 [node name="AttackArea" type="Area2D" parent="VisionNode"]
@@ -1091,12 +1092,14 @@ transform = Transform3D(-0.35371977, 0.93535143, 0, -0.93535143, -0.35371977, 0,
 
 [node name="LeftSprite2D" type="Sprite2D" parent="."]
 visible = false
+modulate = Color(0, 1, 0.015625, 1)
 top_level = true
 scale = Vector2(0.4375, 0.4375)
 texture = ExtResource("4_bftkq")
 
 [node name="RightSprite2D" type="Sprite2D" parent="."]
 visible = false
+modulate = Color(1, 0, 0, 1)
 top_level = true
 scale = Vector2(0.4375, 0.4375)
 texture = ExtResource("4_bftkq")
