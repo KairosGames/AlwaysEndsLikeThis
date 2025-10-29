@@ -7,10 +7,12 @@
 radius = 50.0
 height = 170.0
 
-[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("ray_cast")]
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("ray_cast", "player3D", "animation_player")]
 collision_mask = 15
 script = ExtResource("1_x3d5u")
 ray_cast = NodePath("RayCast2D")
+player3D = NodePath("SubViewportParent/SubViewportContainer/SubViewport/Player3D/PersoJam_Textured01")
+animation_player = NodePath("SubViewportParent/SubViewportContainer/SubViewport/Player3D/PersoJam_Textured01/AnimationPlayer")
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
 target_position = Vector2(0, 10)
@@ -37,3 +39,28 @@ render_target_update_mode = 4
 
 [node name="Player3D" parent="SubViewportParent/SubViewportContainer/SubViewport" instance=ExtResource("1_um8lo")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.85, 0)
+
+[node name="Skeleton3D" parent="SubViewportParent/SubViewportContainer/SubViewport/Player3D/PersoJam_Textured01/ArmaturePerso" index="0"]
+bones/0/position = Vector3(-5.3059345e-17, 0.39968973, -0.089467704)
+bones/1/rotation = Quaternion(0.0837446, 2.3758116e-07, 1.9966274e-08, 0.99648726)
+bones/2/rotation = Quaternion(-0.10286805, -1.1857698e-07, -3.6788496e-08, 0.994695)
+bones/3/rotation = Quaternion(-0.04030732, 1.0861237e-14, -9.610012e-09, 0.9991874)
+bones/4/rotation = Quaternion(0.012515162, 0.015433682, -0.9783255, 0.20611769)
+bones/5/rotation = Quaternion(0.06946892, 0.0066102995, -0.16029258, 0.98459977)
+bones/6/rotation = Quaternion(0.024835674, -0.07399242, 0.9756455, 0.2049982)
+bones/7/rotation = Quaternion(0.06946892, -0.006610304, 0.16029258, 0.98459977)
+bones/8/rotation = Quaternion(0.9995631, 0.026413325, -0.0028197898, 0.012962214)
+bones/9/rotation = Quaternion(0.012942612, 0.0005723403, 0.0106722, 0.99985915)
+bones/10/rotation = Quaternion(-0.66638744, -4.8982365e-09, 0.0056229047, 0.7455844)
+bones/11/rotation = Quaternion(0.9995631, -0.026413325, 0.0028197898, 0.012962214)
+bones/12/rotation = Quaternion(0.012942612, -0.0005723403, -0.0106722, 0.99985915)
+bones/13/rotation = Quaternion(-0.66638744, 4.8982365e-09, -0.0056229047, 0.7455844)
+
+[node name="Bras2_R" parent="SubViewportParent/SubViewportContainer/SubViewport/Player3D/PersoJam_Textured01/ArmaturePerso/Skeleton3D" index="0"]
+transform = Transform3D(-0.9940451, -0.08703562, 0.06556322, 0.088173375, -0.99599683, 0.014659725, 0.06402485, 0.020353332, 0.9977405, -1.616013, 1.7957792, -0.15336642)
+
+[node name="Sword" parent="SubViewportParent/SubViewportContainer/SubViewport/Player3D/PersoJam_Textured01/ArmaturePerso/Skeleton3D/Bras2_R" index="0"]
+transform = Transform3D(-0.9940454, 0.081834406, -0.071950555, -0.08703573, -0.19899337, 0.9761283, 0.065563194, 0.97657806, 0.20493096, 0.029644769, 1.4486384, 0.11110371)
+
+[editable path="SubViewportParent/SubViewportContainer/SubViewport/Player3D"]
+[editable path="SubViewportParent/SubViewportContainer/SubViewport/Player3D/PersoJam_Textured01"]
