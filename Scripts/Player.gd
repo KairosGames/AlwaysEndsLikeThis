@@ -7,6 +7,7 @@ class_name Player extends CharacterBody2D
 @export var player3D: Node3D
 @export var animation_player: AnimationPlayer
 @export var health_bar: ProgressBar
+@export var damage_area:Area2D
 @export var damage_shape: CollisionShape2D
 
 @export_category("Player Movement")
@@ -128,7 +129,13 @@ func attack():
 	is_waiting_animation = true
 	animation_player.speed_scale = 3.0
 	animation_player.play("ATTACK")
-	await get_tree().create_timer(1.0417/3.0).timeout
+	await get_tree().create_timer(0.5/3.0).timeout
+	var enemies: Array[Node2D] = damage_area.get_overlapping_bodies()
+	for enemy in enemies:
+		if enemy is Enemy:
+			var en = enemy as Enemy
+			en.take_damages(strength_attack)
+	await get_tree().create_timer((1.0417 - 0.5)/3.0).timeout
 	is_waiting_animation = false
 
 
