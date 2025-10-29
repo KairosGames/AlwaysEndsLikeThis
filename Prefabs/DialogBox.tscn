@@ -1,0 +1,144 @@
+[gd_scene load_steps=9 format=3 uid="uid://ddm1yurjv68y5"]
+
+[ext_resource type="Script" uid="uid://c7ysxlsh14huv" path="res://Scripts/DialogBox.gd" id="1_7prik"]
+[ext_resource type="Script" uid="uid://cggpfu0vhvccc" path="res://Scripts/NinePatchRectScaled.gd" id="2_6mc8x"]
+[ext_resource type="Texture2D" uid="uid://cu5cjl1ymn7j6" path="res://Sprites/dialogbox-ninepatchrect.png" id="3_svrph"]
+[ext_resource type="FontFile" uid="uid://bn4blc6gnxne4" path="res://Font/Jersey15-Regular.ttf" id="4_ldc4v"]
+[ext_resource type="Texture2D" uid="uid://bqbghofp5jti" path="res://Sprites/arrow.png" id="5_4lnly"]
+[ext_resource type="Texture2D" uid="uid://dfogragsx2vt7" path="res://Sprites/button- ninepatchrect.png" id="6_6mc8x"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_7lihs"]
+font = ExtResource("4_ldc4v")
+font_size = 54
+
+[sub_resource type="LabelSettings" id="LabelSettings_svrph"]
+font = ExtResource("4_ldc4v")
+font_size = 64
+
+[node name="DialogBox" type="CanvasLayer"]
+script = ExtResource("1_7prik")
+
+[node name="Container" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Control" type="Control" parent="Container"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -520.0
+offset_top = -351.0
+offset_right = 520.0
+offset_bottom = -120.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Control" type="Container" parent="Container/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_6mc8x")
+tile_scale = 10.0
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Container/Control/Control"]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("3_svrph")
+patch_margin_left = 4
+patch_margin_top = 4
+patch_margin_right = 4
+patch_margin_bottom = 4
+
+[node name="Label" type="Label" parent="Container/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 46.0
+offset_top = 23.0
+offset_right = -46.0
+offset_bottom = -23.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Hello, there azd azd ad"
+label_settings = SubResource("LabelSettings_7lihs")
+autowrap_mode = 2
+
+[node name="ArrowControl" type="Control" parent="Container/Control"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -62.0
+offset_top = -40.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="Arrow" type="TextureRect" parent="Container/Control/ArrowControl"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -33.0
+offset_top = -27.0
+offset_right = -33.0
+offset_bottom = -27.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_4lnly")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="MarginContainer" type="MarginContainer" parent="Container/Control"]
+layout_mode = 0
+offset_left = 54.0
+offset_top = -62.0
+offset_right = 325.0
+offset_bottom = 3.0
+
+[node name="Control" type="Control" parent="Container/Control/MarginContainer"]
+layout_mode = 2
+
+[node name="NameLabel" type="Container" parent="Container/Control/MarginContainer/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -24.0
+offset_top = -5.0
+offset_right = 24.0
+offset_bottom = 17.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_6mc8x")
+tile_scale = 10.0
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Container/Control/MarginContainer/Control/NameLabel"]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("6_6mc8x")
+region_rect = Rect2(0, 0, 32, 8)
+patch_margin_left = 2
+patch_margin_top = 2
+patch_margin_right = 2
+patch_margin_bottom = 3
+
+[node name="NameLabel" type="Label" parent="Container/Control/MarginContainer"]
+texture_filter = 1
+layout_mode = 2
+text = "NAME LABEL"
+label_settings = SubResource("LabelSettings_svrph")
+uppercase = true

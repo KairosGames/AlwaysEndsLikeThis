@@ -1,0 +1,81 @@
+[gd_scene load_steps=10 format=3 uid="uid://brq516cq3oj0c"]
+
+[ext_resource type="Script" uid="uid://c3y2meyoymn72" path="res://Scripts/World.gd" id="1_fngjn"]
+[ext_resource type="Texture2D" uid="uid://mmg1ht5p3lhu" path="res://Visuals/Parralax/background.png" id="2_480m5"]
+[ext_resource type="Texture2D" uid="uid://lsc5fuvcgp2q" path="res://Visuals/Parralax/Back3.png" id="3_v8oqe"]
+[ext_resource type="Texture2D" uid="uid://cx3pjrf1lp18u" path="res://Visuals/Parralax/Back2.png" id="4_52c3o"]
+[ext_resource type="Texture2D" uid="uid://d7y6bniphboy" path="res://Visuals/Parralax/Back1.png" id="5_3lkg4"]
+[ext_resource type="PackedScene" uid="uid://btvrpn605y0cc" path="res://Prefabs/Level.tscn" id="6_1y84r"]
+[ext_resource type="PackedScene" uid="uid://ijstcswtyvgp" path="res://Prefabs/Enemy.tscn" id="7_h277s"]
+[ext_resource type="PackedScene" uid="uid://b62rg4sr6igl" path="res://Prefabs/BossArea.tscn" id="8_0ahc3"]
+[ext_resource type="PackedScene" uid="uid://coqw0f8oheshy" path="res://Prefabs/Fairy.tscn" id="9_480m5"]
+
+[node name="World" type="Node2D"]
+script = ExtResource("1_fngjn")
+player_health = 10
+player_attack = 0
+fairy_text = "Je suis sûre que ça va aller en s’arrangeant… Prends cette potion, elle a été concoctée par les meilleurs esprits de tout le royaume. / Elle contient de la plume de dragon-nain aux yeux bleus, d’une rareté inédite. Tu te sentiras en pleine forme… C’est ce qui te manque pour ce combat, pour sûr."
+boss_text = "Non mais, remets-toi en question… A ton grand âge, tu t’obstines encore comme ça ? Alors que tu ne fais aucun progrès ? / Non seulement c’est RIDICULE, mais en plus tu commences à vraiment me soûler, tu sais."
+
+[node name="PlayerSpawn" type="Node2D" parent="."]
+position = Vector2(232, 932)
+
+[node name="Background" type="Node2D" parent="."]
+position = Vector2(960, 540)
+
+[node name="Parallax2D" type="Parallax2D" parent="Background"]
+scroll_scale = Vector2(0, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Background/Parallax2D"]
+texture = ExtResource("2_480m5")
+
+[node name="Parallax2D2" type="Parallax2D" parent="Background"]
+scroll_scale = Vector2(0.25, 0)
+repeat_size = Vector2(3840, 0)
+repeat_times = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Background/Parallax2D2"]
+texture = ExtResource("3_v8oqe")
+
+[node name="Parallax2D3" type="Parallax2D" parent="Background"]
+scroll_scale = Vector2(0.5, 0)
+repeat_size = Vector2(3840, 0)
+repeat_times = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Background/Parallax2D3"]
+texture = ExtResource("4_52c3o")
+
+[node name="Parallax2D4" type="Parallax2D" parent="Background"]
+scroll_scale = Vector2(0.75, 0)
+repeat_size = Vector2(3840, 0)
+repeat_times = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Background/Parallax2D4"]
+texture = ExtResource("5_3lkg4")
+
+[node name="Level" parent="." instance=ExtResource("6_1y84r")]
+position = Vector2(693, -733)
+scale = Vector2(2, 2)
+
+[node name="Enemy2" parent="." instance=ExtResource("7_h277s")]
+position = Vector2(2611, 1028)
+
+[node name="Enemy5" parent="." instance=ExtResource("7_h277s")]
+position = Vector2(4477, 1037)
+
+[node name="Enemy3" parent="." instance=ExtResource("7_h277s")]
+position = Vector2(6469, 1280)
+
+[node name="Enemy4" parent="." instance=ExtResource("7_h277s")]
+position = Vector2(8508, 1830)
+
+[node name="Enemy6" parent="." instance=ExtResource("7_h277s")]
+position = Vector2(7626, 1568)
+
+[node name="BossArea" parent="." instance=ExtResource("8_0ahc3")]
+position = Vector2(11146, 1534)
+monitoring = false
+
+[node name="Fairy" parent="." node_paths=PackedStringArray("target") instance=ExtResource("9_480m5")]
+position = Vector2(696, -557)
+target = NodePath("../PlayerSpawn")

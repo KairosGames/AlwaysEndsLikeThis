@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://lsc5fuvcgp2q"
-path="res://.godot/imported/Back3.png-5cc2e769505784e70a3d8ef9fa02ff75.ctex"
+uid="uid://bqbghofp5jti"
+path="res://.godot/imported/arrow.png-5405b2f4a5090f6ebaea005362d7d52b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Visuals/Parralax/Back3.png"
-dest_files=["res://.godot/imported/Back3.png-5cc2e769505784e70a3d8ef9fa02ff75.ctex"]
+source_file="res://Sprites/arrow.png"
+dest_files=["res://.godot/imported/arrow.png-5405b2f4a5090f6ebaea005362d7d52b.ctex"]
 
 [params]
 

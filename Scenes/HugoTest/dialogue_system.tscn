@@ -54,6 +54,7 @@ _text = NodePath("TextureRect/Control/DialogueText")
 dialogues_list = Array[String](["Sois le bienvenu dans mon antre, voyageur. Tu as réussi à parvenir jusqu’à là. Sauras-tu faire preuve de la même ruse pour me battre et te montrer digne de mon trésor ? Je te souhaite bonne chance", "Te revoilà, aventurier ! Quel courage ! Puisse la chance être de ton côté, cette fois. En garde ! ", "Encore toi ? Ta détermination est admirable, je te l’accorde. Peut être que cette fois sera la bonne. "])
 
 [node name="TextureRect" type="TextureRect" parent="."]
+texture_filter = 1
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5

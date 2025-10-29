@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://lsc5fuvcgp2q"
-path="res://.godot/imported/Back3.png-5cc2e769505784e70a3d8ef9fa02ff75.ctex"
+uid="uid://rhwtuqarb547"
+path="res://.godot/imported/rect.png-ea1b04fa72fb84aa92c18c1bf615f999.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Visuals/Parralax/Back3.png"
-dest_files=["res://.godot/imported/Back3.png-5cc2e769505784e70a3d8ef9fa02ff75.ctex"]
+source_file="res://Sprites/rect.png"
+dest_files=["res://.godot/imported/rect.png-ea1b04fa72fb84aa92c18c1bf615f999.ctex"]
 
 [params]
 

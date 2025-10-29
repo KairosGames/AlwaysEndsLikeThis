@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://lsc5fuvcgp2q"
-path="res://.godot/imported/Back3.png-5cc2e769505784e70a3d8ef9fa02ff75.ctex"
+uid="uid://bbdax23yblte0"
+path="res://.godot/imported/FAIRY2.png-5a0f5b6e4341eb210070a93ea5461acc.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Visuals/Parralax/Back3.png"
-dest_files=["res://.godot/imported/Back3.png-5cc2e769505784e70a3d8ef9fa02ff75.ctex"]
+source_file="res://Visuals/Fairy/FAIRY2.png"
+dest_files=["res://.godot/imported/FAIRY2.png-5a0f5b6e4341eb210070a93ea5461acc.ctex"]
 
 [params]
 

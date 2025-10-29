@@ -1,13 +1,23 @@
-[gd_scene load_steps=5 format=3 uid="uid://x5kbkwo6v0i2"]
+[gd_scene load_steps=15 format=3 uid="uid://x5kbkwo6v0i2"]
 
 [ext_resource type="PackedScene" uid="uid://d1iy4k0c6rb3i" path="res://Prefabs/Player.tscn" id="1_hpc76"]
-[ext_resource type="PackedScene" uid="uid://dy3yms0db4tfp" path="res://Prefabs/World.tscn" id="1_nhkr4"]
+[ext_resource type="PackedScene" uid="uid://dy3yms0db4tfp" path="res://Prefabs/Worlds/World0.tscn" id="1_nhkr4"]
 [ext_resource type="Script" uid="uid://das80wljj04lw" path="res://Scripts/MainScene.gd" id="1_qxria"]
 [ext_resource type="PackedScene" uid="uid://bg5ake8d05oys" path="res://Prefabs/PlayerCamera2D.tscn" id="1_tr2i4"]
+[ext_resource type="PackedScene" uid="uid://5oq38megrrwh" path="res://Prefabs/Worlds/World1.tscn" id="3_5qxwa"]
+[ext_resource type="PackedScene" uid="uid://p226xwjv05eu" path="res://Prefabs/Worlds/World2.tscn" id="4_xc4hf"]
+[ext_resource type="PackedScene" uid="uid://xm3pue23rkop" path="res://Prefabs/Worlds/World3.tscn" id="5_6rnll"]
+[ext_resource type="PackedScene" uid="uid://chmo16p6scb26" path="res://Prefabs/Worlds/World4.tscn" id="6_enc0b"]
+[ext_resource type="PackedScene" uid="uid://bbsnin82l2i80" path="res://Prefabs/Worlds/World5.tscn" id="7_hx8n4"]
+[ext_resource type="PackedScene" uid="uid://crg0dcgufsnx2" path="res://Prefabs/Worlds/World6.tscn" id="8_i0j58"]
+[ext_resource type="PackedScene" uid="uid://b7o5mpqugvfvh" path="res://Prefabs/Worlds/World7.tscn" id="9_c1ier"]
+[ext_resource type="PackedScene" uid="uid://cyae2563slao" path="res://Prefabs/Worlds/World8.tscn" id="10_gyaec"]
+[ext_resource type="PackedScene" uid="uid://brq516cq3oj0c" path="res://Prefabs/Worlds/World9.tscn" id="11_bpy1e"]
+[ext_resource type="PackedScene" uid="uid://cbhw6dxsqkttn" path="res://Prefabs/Worlds/World10.tscn" id="12_p5ymy"]
 
 [node name="MainScene" type="Node2D"]
 script = ExtResource("1_qxria")
-worlds = Array[PackedScene]([ExtResource("1_nhkr4")])
+worlds = Array[PackedScene]([ExtResource("1_nhkr4"), ExtResource("3_5qxwa"), ExtResource("4_xc4hf"), ExtResource("5_6rnll"), ExtResource("6_enc0b"), ExtResource("7_hx8n4"), ExtResource("8_i0j58"), ExtResource("9_c1ier"), ExtResource("10_gyaec"), ExtResource("11_bpy1e"), ExtResource("12_p5ymy")])
 
 [node name="World" parent="." instance=ExtResource("1_nhkr4")]
 
@@ -15,4 +25,5 @@ worlds = Array[PackedScene]([ExtResource("1_nhkr4")])
 target = NodePath("../Player")
 
 [node name="Player" parent="." instance=ExtResource("1_hpc76")]
+z_index = 1
 position = Vector2(232, 923)

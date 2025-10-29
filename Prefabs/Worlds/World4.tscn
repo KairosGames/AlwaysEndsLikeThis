@@ -1,0 +1,80 @@
+[gd_scene load_steps=10 format=3 uid="uid://chmo16p6scb26"]
+
+[ext_resource type="Script" uid="uid://c3y2meyoymn72" path="res://Scripts/World.gd" id="1_eq42v"]
+[ext_resource type="Texture2D" uid="uid://mmg1ht5p3lhu" path="res://Visuals/Parralax/background.png" id="2_e01rq"]
+[ext_resource type="Texture2D" uid="uid://lsc5fuvcgp2q" path="res://Visuals/Parralax/Back3.png" id="3_kd2ib"]
+[ext_resource type="Texture2D" uid="uid://cx3pjrf1lp18u" path="res://Visuals/Parralax/Back2.png" id="4_n51y6"]
+[ext_resource type="Texture2D" uid="uid://d7y6bniphboy" path="res://Visuals/Parralax/Back1.png" id="5_nhdos"]
+[ext_resource type="PackedScene" uid="uid://btvrpn605y0cc" path="res://Prefabs/Level.tscn" id="6_2jeo2"]
+[ext_resource type="PackedScene" uid="uid://ijstcswtyvgp" path="res://Prefabs/Enemy.tscn" id="7_1muj5"]
+[ext_resource type="PackedScene" uid="uid://b62rg4sr6igl" path="res://Prefabs/BossArea.tscn" id="8_gxuhp"]
+[ext_resource type="PackedScene" uid="uid://coqw0f8oheshy" path="res://Prefabs/Fairy.tscn" id="9_e01rq"]
+
+[node name="World" type="Node2D"]
+script = ExtResource("1_eq42v")
+player_health = 0
+fairy_text = "Hmm… Peut-être qu’en ayant une épée plus aiguisée tu viendras à bout de ce donjon ? Essayons donc. En voici une pour remplacer l’ancienne."
+boss_text = "…Oh, c’est toi ? Je ne suis même pas surpris. Loin de moi l’idée de te décourager mais, parfois, il faut savoir s’admettre vaincu tu sais… En garde."
+
+[node name="PlayerSpawn" type="Node2D" parent="."]
+position = Vector2(232, 932)
+
+[node name="Background" type="Node2D" parent="."]
+position = Vector2(960, 540)
+
+[node name="Parallax2D" type="Parallax2D" parent="Background"]
+scroll_scale = Vector2(0, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Background/Parallax2D"]
+texture = ExtResource("2_e01rq")
+
+[node name="Parallax2D2" type="Parallax2D" parent="Background"]
+scroll_scale = Vector2(0.25, 0)
+repeat_size = Vector2(3840, 0)
+repeat_times = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Background/Parallax2D2"]
+texture = ExtResource("3_kd2ib")
+
+[node name="Parallax2D3" type="Parallax2D" parent="Background"]
+scroll_scale = Vector2(0.5, 0)
+repeat_size = Vector2(3840, 0)
+repeat_times = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Background/Parallax2D3"]
+texture = ExtResource("4_n51y6")
+
+[node name="Parallax2D4" type="Parallax2D" parent="Background"]
+scroll_scale = Vector2(0.75, 0)
+repeat_size = Vector2(3840, 0)
+repeat_times = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Background/Parallax2D4"]
+texture = ExtResource("5_nhdos")
+
+[node name="Level" parent="." instance=ExtResource("6_2jeo2")]
+position = Vector2(693, -733)
+scale = Vector2(2, 2)
+
+[node name="Enemy2" parent="." instance=ExtResource("7_1muj5")]
+position = Vector2(2611, 1028)
+
+[node name="Enemy5" parent="." instance=ExtResource("7_1muj5")]
+position = Vector2(4477, 1037)
+
+[node name="Enemy3" parent="." instance=ExtResource("7_1muj5")]
+position = Vector2(6469, 1280)
+
+[node name="Enemy4" parent="." instance=ExtResource("7_1muj5")]
+position = Vector2(8508, 1830)
+
+[node name="Enemy6" parent="." instance=ExtResource("7_1muj5")]
+position = Vector2(7626, 1568)
+
+[node name="BossArea" parent="." instance=ExtResource("8_gxuhp")]
+position = Vector2(11146, 1534)
+monitoring = false
+
+[node name="Fairy" parent="." node_paths=PackedStringArray("target") instance=ExtResource("9_e01rq")]
+position = Vector2(696, -557)
+target = NodePath("../PlayerSpawn")
