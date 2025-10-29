@@ -1,9 +1,10 @@
-[gd_scene load_steps=24 format=4 uid="uid://ijstcswtyvgp"]
+[gd_scene load_steps=25 format=4 uid="uid://ijstcswtyvgp"]
 
 [ext_resource type="Script" uid="uid://borqw4sr0rd3e" path="res://Scripts/Enemy.gd" id="1_yfbri"]
 [ext_resource type="Texture2D" uid="uid://dhn0oj05ll7fi" path="res://Visuals/Enemy/Rat05_palette.png" id="2_gti1y"]
 [ext_resource type="Shader" uid="uid://6kugmp2xshy4" path="res://Visuals/Shaders/TestShading.gdshader" id="3_yfbri"]
 [ext_resource type="Texture2D" uid="uid://b4yxjr6d4km1u" path="res://icon.svg" id="4_bftkq"]
+[ext_resource type="AudioStream" uid="uid://d3ya5p5f188qd" path="res://Music/SFx/Personnage/rat_squeak.wav" id="5_4fqf7"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bftkq"]
 radius = 26.0
@@ -1138,3 +1139,13 @@ theme_override_styles/background = SubResource("StyleBoxFlat_bftkq")
 theme_override_styles/fill = SubResource("StyleBoxFlat_4fqf7")
 value = 50.0
 show_percentage = false
+
+[node name="SqueakAudio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_4fqf7")
+volume_db = -10.0
+bus = &"SFX"
+
+[node name="RatHitAudio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_4fqf7")
+volume_db = -10.0
+bus = &"SFX"

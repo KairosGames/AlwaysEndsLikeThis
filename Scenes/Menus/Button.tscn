@@ -5,8 +5,8 @@
 [ext_resource type="Script" uid="uid://cd6r275ryk5yj" path="res://Scripts/buttonUi.gd" id="2_opoxm"]
 [ext_resource type="PackedScene" uid="uid://xoyaixo8qn4o" path="res://Prefabs/NinePatchScaled.tscn" id="3_08v5i"]
 [ext_resource type="Texture2D" uid="uid://cq3i4oe7cqcu8" path="res://Sprites/Button.png" id="4_0kwur"]
-[ext_resource type="AudioStream" path="res://Music/UI/click.wav" id="4_nfggl"]
-[ext_resource type="AudioStream" path="res://Music/UI/Hover.ogg" id="5_f6lv3"]
+[ext_resource type="AudioStream" uid="uid://kac1y3mydeak" path="res://Music/SFx/UI/click.wav" id="4_nfggl"]
+[ext_resource type="AudioStream" uid="uid://d4nmou06scckl" path="res://Music/SFx/UI/Hover.ogg" id="5_f6lv3"]
 
 [node name="Start" type="Button"]
 z_index = 1
@@ -24,9 +24,11 @@ script = ExtResource("2_opoxm")
 
 [node name="Click" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_nfggl")
+bus = &"SFX"
 
 [node name="Hover" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_f6lv3")
+bus = &"SFX"
 
 [node name="NinePatchScaled" parent="." instance=ExtResource("3_08v5i")]
 z_index = -1

@@ -23,14 +23,6 @@ func Call_play_music(music: AudioStream,volume: float = -10.0):
 	# Joue la musique de niveau (volume par défaut : -10.0 dB)
 	_play_music(MusicPlayer, music, volume)
 
-func play_SFX(sfx: AudioStream, volume: float = -10.0):
-	# Joue un SFX avec un volume légèrement plus fort
-	SfxPlayer.stream = sfx
-	SfxPlayer.volume_db = volume
-	SfxPlayer.play()
-	# Le SfxPlayer étant déjà assigné au bus SFX dans l'éditeur, son volume sera automatiquement
-	# modulé par le volume du Bus SFX défini par le Slider.
-	
 func play_music_overworld() -> void:
 	Call_play_music(level_music)
 	pass

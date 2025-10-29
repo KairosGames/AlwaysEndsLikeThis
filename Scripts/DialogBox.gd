@@ -40,6 +40,8 @@ func _write_text(text: String, audio: AudioStreamPlayer):
 	dialog_speed = 1.0
 	label.text = ""
 	is_writing_dialog = true
+	audio.pitch_scale = randf_range(0.8, 1.2)
+	audio.play()
 	for char in text:
 		if char == " ":
 			audio.pitch_scale = randf_range(0.8, 1.2)

@@ -1,4 +1,4 @@
-extends CharacterBody2D
+class_name Enemy extends CharacterBody2D
 
 const GRAVITY := 98
 const MOVE_SPEED := 100
@@ -39,7 +39,7 @@ var walking_point_steps := 100.0
 
 func _ready() -> void:
 	enter_state(EnemyState.Idle)
-	health_bar.max_value = health
+	health_bar.value = health
 	health_bar.max_value = health
 
 func _process(delta: float) -> void:
@@ -142,7 +142,23 @@ func update_walking_points():
 	
 	walking_points = [left_position, right_position]
 
+@onready var squeak_audio: AudioStreamPlayer = $SqueakAudio
+@onready var rat_hit_audio: AudioStreamPlayer = $RatHitAudio
 
 func take_damages(damages: int):
 	health -= damages
 	health_bar.value = health
+
+	if health <= 0: die()
+	else: 
+		rat_hit_audio.pitch_scale = randf_range(0.8, 1.2)
+		rat_hit_audio.play()
+		animation_player.play("HIT")
+		
+	
+func die():
+	squeak_audio.pitch_scale = randf_range(0.8, 1.2)
+	squeak_audio.play()
+	animation_player.play("DEATH")
+	await animation_player.animation_finished
+	queue_free()
