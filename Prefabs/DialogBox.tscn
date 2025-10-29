@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://cu5cjl1ymn7j6" path="res://Sprites/dialogbox-ninepatchrect.png" id="3_svrph"]
 [ext_resource type="FontFile" uid="uid://bn4blc6gnxne4" path="res://Font/Jersey15-Regular.ttf" id="4_ldc4v"]
 [ext_resource type="Texture2D" uid="uid://bqbghofp5jti" path="res://Sprites/arrow.png" id="5_4lnly"]
-[ext_resource type="Texture2D" uid="uid://dfogragsx2vt7" path="res://Sprites/button- ninepatchrect.png" id="6_6mc8x"]
+[ext_resource type="Texture2D" uid="uid://dfogragsx2vt7" path="res://Sprites/dialogue- ninepatchrect.png" id="6_6mc8x"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_7lihs"]
 font = ExtResource("4_ldc4v")
