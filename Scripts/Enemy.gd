@@ -19,7 +19,6 @@ enum EnemyState {
 	Attacking
 }
 
-@onready var enemy_ray_cast_2d_2: RayCast2D = $VisionNode/EnemyRayCast2D
 @onready var player_vision_ray_cast_2d: RayCast2D = $VisionNode/PlayerVisionRayCast2D
 @onready var walking_vision_ray_cast_2d: RayCast2D = $VisionNode/WalkingVisionRayCast2D
 @onready var walking_ray_cast_2d: RayCast2D = $WalkingRayCast2D
@@ -66,7 +65,7 @@ func enter_state(state: EnemyState):
 	enter_state_time = Time.get_ticks_msec()
 	current_state = state
 
-func handle_state(delta: float)->void:
+func handle_state(_delta: float)->void:
 	if not is_on_floor(): return;
 	match current_state:
 		EnemyState.Idle:
@@ -86,7 +85,7 @@ func handle_state(delta: float)->void:
 			if not player_vision_ray_cast_2d.is_colliding():
 				enter_state(EnemyState.Walking)
 				return;
-			var moved = move_to_position(player.global_position, 0.0)
+			move_to_position(player.global_position, 0.0)
 			if attack_area.has_overlapping_bodies():
 				enter_state(EnemyState.Attacking)
 		EnemyState.Attacking:

@@ -2,6 +2,8 @@ class_name Player extends CharacterBody2D
 
 @export_category("References")
 @export var ray_cast: RayCast2D
+@export var player3D: Node3D
+@export var animation_player: AnimationPlayer
 
 @export_category("Player Movement")
 @export var max_speed: float = 500.0
@@ -15,6 +17,7 @@ class_name Player extends CharacterBody2D
 
 @export_category("Gameplay")
 @export var health: int = 100
+@export var strength_attack: int = 10
 
 var move_dir: Vector2 = Vector2.ZERO
 
@@ -41,6 +44,7 @@ func get_input():
 func move_player(delta: float):
 	handle_acceleration(delta)
 	handle_gravity(delta)
+	set_player3D_rotation()
 	move_and_slide()
 
 
@@ -70,6 +74,17 @@ func jump():
 	if is_on_floor():
 		velocity.y = -jump_strength
 
+
+func set_player3D_rotation():
+	if velocity.x > 0:
+		player3D.global_rotation.y = -80.0
+	elif velocity.x < 0:
+		player3D.global_rotation.y = 80.0
+	if velocity.x == 0.0:
+		animation_player.play("IDLE")
+		return
+	animation_player.speed_scale = 3.0 * abs(velocity.x/max_speed)
+	animation_player.play("WALK")
 
 func take_damages(damages: int):
 	health -= damages

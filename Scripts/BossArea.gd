@@ -7,7 +7,7 @@ class_name BossArea extends Area2D
 @onready var boss_camera_target: Node2D = $BossCameraTarget
 
 func _ready():
-	body_entered.connect(func(body: Node): trigger_boss_animation())
+	body_entered.connect(func(_body: Node): trigger_boss_animation())
 
 func trigger_boss_animation():
 	camera.target = null

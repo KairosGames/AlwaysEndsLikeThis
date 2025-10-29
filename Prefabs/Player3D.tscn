@@ -1,18 +1,15 @@
 [gd_scene load_steps=2 format=3 uid="uid://cqajbt5ke7bty"]
 
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_4ynan"]
-height = 1.7
+[ext_resource type="PackedScene" uid="uid://3vdhxq1a2qwq" path="res://Visuals/Player/PersoJam_Textured01.glb" id="1_vl563"]
 
 [node name="Player3D" type="Node3D"]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.37910086, 0.9253554, 0, -0.9253554, 0.37910086, 0, 5.2235856, 8.736038)
 
-[node name="MeshInance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.85, 0)
-mesh = SubResource("CapsuleMesh_4ynan")
+[node name="PersoJam_Textured01" parent="." instance=ExtResource("1_vl563")]
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 1.438)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.264107, 9.377966)
 projection = 1
-size = 2.0
+size = 12.653501
