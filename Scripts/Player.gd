@@ -53,6 +53,7 @@ func move_player(delta: float):
 
 func handle_acceleration(delta: float):
 	var dir: float = 1.0 if velocity.x >= 0.0 else -1.0
+	if not is_controlled_by_player: return
 	if move_dir.length() != 0:
 		velocity.x += move_dir.x * acceleration * delta
 		if (velocity.x * Vector2.RIGHT).normalized().x != (move_dir.x * Vector2.RIGHT).normalized().x:
@@ -75,6 +76,7 @@ func handle_gravity(delta: float):
 
 func jump():
 	if is_on_floor():
+		if not is_controlled_by_player: return
 		velocity.y = -jump_strength
 
 
