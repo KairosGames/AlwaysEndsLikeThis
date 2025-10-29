@@ -12,6 +12,7 @@
 bg_color = Color(0.15294118, 0.15294118, 0.15294118, 1)
 
 [node name="MainMenu" type="Control"]
+texture_filter = 1
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -113,13 +114,12 @@ texture = ExtResource("6_chkef")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="Menus" type="Node" parent="."]
-
-[node name="CreditMenu" parent="Menus" instance=ExtResource("3_penys")]
+[node name="CreditMenu" parent="." instance=ExtResource("3_penys")]
 visible = false
 z_index = 2
+layout_mode = 1
 
-[node name="CreditMenuButton" parent="Menus/CreditMenu" node_paths=PackedStringArray("Menu") instance=ExtResource("2_5wi6m")]
+[node name="CreditMenuButton" parent="CreditMenu" node_paths=PackedStringArray("Menu") instance=ExtResource("2_5wi6m")]
 layout_mode = 0
 offset_left = 926.0
 offset_top = 845.0
@@ -128,13 +128,14 @@ offset_bottom = 875.0
 scale = Vector2(1.313, 1.313)
 text = "Back
 "
-Menu = NodePath("../../..")
+Menu = NodePath("../..")
 
-[node name="SettingMenu" parent="Menus" instance=ExtResource("4_aur2u")]
+[node name="SettingMenu" parent="." instance=ExtResource("4_aur2u")]
 visible = false
 z_index = 2
+layout_mode = 1
 
-[node name="SettingMenuBackButton" parent="Menus/SettingMenu" node_paths=PackedStringArray("Menu") instance=ExtResource("2_5wi6m")]
+[node name="SettingMenuBackButton" parent="SettingMenu" node_paths=PackedStringArray("Menu") instance=ExtResource("2_5wi6m")]
 layout_mode = 0
 offset_left = 926.0
 offset_top = 845.0
@@ -143,7 +144,7 @@ offset_bottom = 875.0
 scale = Vector2(1.3127968, 1.2991267)
 text = "Back
 "
-Menu = NodePath("../../..")
+Menu = NodePath("../..")
 
 [connection signal="pressed" from="VBoxContainer/Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="VBoxContainer/Options" to="." method="_on_options_pressed"]

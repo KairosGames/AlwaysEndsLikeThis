@@ -1,10 +1,12 @@
-[gd_scene load_steps=6 format=3 uid="uid://c0hlex2yp005y"]
+[gd_scene load_steps=8 format=3 uid="uid://c0hlex2yp005y"]
 
 [ext_resource type="FontFile" uid="uid://bn4blc6gnxne4" path="res://Font/Jersey15-Regular.ttf" id="1_2rowi"]
 [ext_resource type="StyleBox" uid="uid://b13ha6n0lyflh" path="res://Scenes/Menus/Button.tres" id="2_mobw8"]
 [ext_resource type="Script" uid="uid://cd6r275ryk5yj" path="res://Scripts/buttonUi.gd" id="2_opoxm"]
 [ext_resource type="PackedScene" uid="uid://xoyaixo8qn4o" path="res://Prefabs/NinePatchScaled.tscn" id="3_08v5i"]
 [ext_resource type="Texture2D" uid="uid://cq3i4oe7cqcu8" path="res://Sprites/Button.png" id="4_0kwur"]
+[ext_resource type="AudioStream" path="res://Music/UI/click.wav" id="4_nfggl"]
+[ext_resource type="AudioStream" path="res://Music/UI/Hover.ogg" id="5_f6lv3"]
 
 [node name="Start" type="Button"]
 z_index = 1
@@ -21,11 +23,10 @@ text = "Start"
 script = ExtResource("2_opoxm")
 
 [node name="Click" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("3_0kwur")
-volume_db = -50.0
-bus = &"SFX"
+stream = ExtResource("4_nfggl")
 
 [node name="Hover" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_f6lv3")
 
 [node name="NinePatchScaled" parent="." instance=ExtResource("3_08v5i")]
 z_index = -1

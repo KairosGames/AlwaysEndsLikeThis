@@ -1,11 +1,13 @@
-[gd_scene load_steps=9 format=3 uid="uid://ddm1yurjv68y5"]
+[gd_scene load_steps=11 format=3 uid="uid://ddm1yurjv68y5"]
 
 [ext_resource type="Script" uid="uid://c7ysxlsh14huv" path="res://Scripts/DialogBox.gd" id="1_7prik"]
 [ext_resource type="Script" uid="uid://cggpfu0vhvccc" path="res://Scripts/NinePatchRectScaled.gd" id="2_6mc8x"]
 [ext_resource type="PackedScene" uid="uid://xoyaixo8qn4o" path="res://Prefabs/NinePatchScaled.tscn" id="2_svrph"]
 [ext_resource type="FontFile" uid="uid://bn4blc6gnxne4" path="res://Font/Jersey15-Regular.ttf" id="4_ldc4v"]
 [ext_resource type="Texture2D" uid="uid://bqbghofp5jti" path="res://Sprites/arrow.png" id="5_4lnly"]
-[ext_resource type="Texture2D" uid="uid://dfogragsx2vt7" path="res://Sprites/dialogue- ninepatchrect.png" id="6_6mc8x"]
+[ext_resource type="Texture2D" uid="uid://dfogragsx2vt7" path="res://Sprites/button- ninepatchrect.png" id="6_6mc8x"]
+[ext_resource type="AudioStream" uid="uid://dls6cslnmux2f" path="res://Music/SFx/Dialogues/Dialog_fairy.wav" id="7_ldc4v"]
+[ext_resource type="AudioStream" uid="uid://cwb0stpir5p2q" path="res://Music/SFx/Dialogues/Dialog_boss.wav" id="8_4lnly"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_7lihs"]
 font = ExtResource("4_ldc4v")
@@ -126,3 +128,10 @@ layout_mode = 2
 text = "NAME LABEL"
 label_settings = SubResource("LabelSettings_svrph")
 uppercase = true
+
+[node name="FairyAudio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_ldc4v")
+max_polyphony = 10
+
+[node name="BossAudio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_4lnly")

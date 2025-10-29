@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cugxva7diqq8d"
+path="res://.godot/imported/Hit épée.wav-7d62f885d25fe57e5b420bd1003ed625.sample"
+
+[deps]
+
+source_file="res://Music/SFx/Attaque/Hit épée.wav"
+dest_files=["res://.godot/imported/Hit épée.wav-7d62f885d25fe57e5b420bd1003ed625.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

@@ -18,8 +18,10 @@ func trigger_boss_animation():
 	get_tree().create_tween().tween_property(camera, "global_position", boss_camera_target.global_position, 1)
 	await get_tree().create_timer(1).timeout
 	
-	var dialogbox = game.new_dialogbox("BOSS", world.boss_text)
+	var dialogbox = game.new_dialogbox("BOSS", world.boss_text, false)
 	dialogbox.dialog_ended.connect(func():
+		player.velocity = Vector2.ZERO
+		player.move_dir = Vector2.ZERO
 		player.is_controlled_by_player = false
 		create_tween().tween_property(boss, "global_position:x", player.global_position.x + 300.0, 0.5)
 		await get_tree().create_timer(0.4).timeout

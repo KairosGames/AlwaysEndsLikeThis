@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cfjt3ekpk4bhg"
+path="res://.godot/imported/Arrivée fée.wav-1c64a3c3120aa56781df7261eae93b90.sample"
+
+[deps]
+
+source_file="res://Music/SFx/Personnage/Arrivée fée.wav"
+dest_files=["res://.godot/imported/Arrivée fée.wav-1c64a3c3120aa56781df7261eae93b90.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2
