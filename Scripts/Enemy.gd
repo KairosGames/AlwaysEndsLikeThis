@@ -154,6 +154,7 @@ func take_damages(damages: int):
 		rat_hit_audio.pitch_scale = randf_range(0.8, 1.2)
 		rat_hit_audio.play()
 		animation_player.play("HIT")
+		enter_state(EnemyState.Fighting)
 		
 	
 func die():

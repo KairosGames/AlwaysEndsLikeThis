@@ -1,7 +1,12 @@
-[gd_scene load_steps=7 format=3 uid="uid://d1iy4k0c6rb3i"]
+[gd_scene load_steps=13 format=3 uid="uid://d1iy4k0c6rb3i"]
 
 [ext_resource type="PackedScene" uid="uid://cqajbt5ke7bty" path="res://Prefabs/Player3D.tscn" id="1_um8lo"]
 [ext_resource type="Script" uid="uid://dgyvbdpxwje2d" path="res://Scripts/Player.gd" id="1_x3d5u"]
+[ext_resource type="AudioStream" uid="uid://jv3p5ko0knkp" path="res://Music/SFx/Attaque/attack_épée_1.wav" id="3_vxq8l"]
+[ext_resource type="AudioStream" uid="uid://bw7vuwc86tcbp" path="res://Music/SFx/Attaque/attack_épée_2.wav" id="4_gg3t4"]
+[ext_resource type="AudioStream" uid="uid://jh5smtp87pgb" path="res://Music/SFx/Attaque/attack_épée_3.wav" id="5_javds"]
+[ext_resource type="AudioStream" uid="uid://dqcpwy0nrky7c" path="res://Music/SFx/Personnage/Hit_Joueur.wav" id="6_gg3t4"]
+[ext_resource type="AudioStream" uid="uid://5ocsjpsqo7tl" path="res://Music/SFx/Personnage/Pre Jump 1.wav" id="7_javds"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_um8lo"]
 radius = 50.0
@@ -33,6 +38,12 @@ corner_detail = 6
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x3d5u"]
 size = Vector2(77.25, 124)
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_3ygst"]
+streams_count = 3
+stream_0/stream = ExtResource("3_vxq8l")
+stream_1/stream = ExtResource("4_gg3t4")
+stream_2/stream = ExtResource("5_javds")
 
 [node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("ray_cast", "player3D", "animation_player", "health_bar", "damage_area", "damage_shape")]
 collision_mask = 15
@@ -112,6 +123,20 @@ collision_mask = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DamageArea"]
 position = Vector2(71.625, -67)
 shape = SubResource("RectangleShape2D_x3d5u")
+
+[node name="SwordHitAudio" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamRandomizer_3ygst")
+bus = &"SFX"
+
+[node name="DamageAudio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_gg3t4")
+volume_db = -6.0
+bus = &"SFX"
+
+[node name="JumpAudio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_javds")
+volume_db = -6.0
+bus = &"SFX"
 
 [editable path="SubViewportParent/SubViewportContainer/SubViewport/Player3D"]
 [editable path="SubViewportParent/SubViewportContainer/SubViewport/Player3D/PersoJam_Textured02"]

@@ -29,10 +29,12 @@ var is_alive: bool = true
 var is_controlled_by_player: bool = false
 var is_waiting_animation: bool = false
 
+@onready var sword_hit_audio: AudioStreamPlayer = $SwordHitAudio
+@onready var damage_audio: AudioStreamPlayer = $DamageAudio
+@onready var jump_audio: AudioStreamPlayer = $JumpAudio
 
 func _process(_delta: float) -> void:
 	get_input()
-
 
 func _physics_process(delta: float) -> void:
 	move_player(delta)
@@ -86,7 +88,6 @@ func handle_gravity(delta: float):
 		if velocity.y < -max_fall_speed:
 			velocity.y = -max_fall_speed
 
-
 func jump():
 	if is_on_floor():
 		if not is_controlled_by_player or game.active_dialogbox or not is_alive: return
@@ -94,6 +95,8 @@ func jump():
 		is_waiting_animation = true
 		animation_player.speed_scale = 1.5
 		animation_player.play("JUMP_IN_PLACE")
+		jump_audio.pitch_scale = randf_range(0.9, 1.1)
+		jump_audio.play()
 		await get_tree().create_timer(1.0417 / 1.5).timeout
 		is_waiting_animation = false
 
@@ -114,6 +117,7 @@ func set_player3D():
 		animation_player.play("WALK")
 
 
+
 func take_damages(damages: int):
 	health -= damages
 	if health <= 0:
@@ -121,14 +125,17 @@ func take_damages(damages: int):
 		is_alive = false
 		is_controlled_by_player = false
 		die()
+		return
 	health_bar.value = health
-
+	damage_audio.pitch_scale = randf_range(0.8, 1.2)
+	damage_audio.play()
 
 func attack():
 	if is_waiting_animation or game.active_dialogbox or not is_controlled_by_player: return
 	is_waiting_animation = true
 	animation_player.speed_scale = 3.0
 	animation_player.play("ATTACK")
+	sword_hit_audio.play()
 	await get_tree().create_timer(0.5/3.0).timeout
 	var enemies: Array[Node2D] = damage_area.get_overlapping_bodies()
 	for enemy in enemies:
