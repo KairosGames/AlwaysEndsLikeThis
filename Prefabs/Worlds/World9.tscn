@@ -8,12 +8,12 @@
 [ext_resource type="PackedScene" uid="uid://btvrpn605y0cc" path="res://Prefabs/Level.tscn" id="6_1y84r"]
 [ext_resource type="PackedScene" uid="uid://ijstcswtyvgp" path="res://Prefabs/Enemy.tscn" id="7_h277s"]
 [ext_resource type="PackedScene" uid="uid://b62rg4sr6igl" path="res://Prefabs/BossArea.tscn" id="8_0ahc3"]
-[ext_resource type="PackedScene" uid="uid://coqw0f8oheshy" path="res://Prefabs/Fairy.tscn" id="9_480m5"]
+[ext_resource type="PackedScene" uid="uid://g26cdof1rtj6" path="res://Prefabs/Fairy.tscn" id="9_480m5"]
 
 [node name="World" type="Node2D"]
 script = ExtResource("1_fngjn")
-player_health = 10
-player_attack = 0
+player_health = 160
+player_attack = 35
 fairy_text = "Je suis sûre que ça va aller en s’arrangeant… Prends cette potion, elle a été concoctée par les meilleurs esprits de tout le royaume. / Elle contient de la plume de dragon-nain aux yeux bleus, d’une rareté inédite. Tu te sentiras en pleine forme… C’est ce qui te manque pour ce combat, pour sûr."
 boss_text = "Non mais, remets-toi en question… A ton grand âge, tu t’obstines encore comme ça ? Alors que tu ne fais aucun progrès ? / Non seulement c’est RIDICULE, mais en plus tu commences à vraiment me soûler, tu sais."
 

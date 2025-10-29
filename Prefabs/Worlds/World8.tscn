@@ -8,12 +8,12 @@
 [ext_resource type="PackedScene" uid="uid://btvrpn605y0cc" path="res://Prefabs/Level.tscn" id="6_t7wub"]
 [ext_resource type="PackedScene" uid="uid://ijstcswtyvgp" path="res://Prefabs/Enemy.tscn" id="7_jfff6"]
 [ext_resource type="PackedScene" uid="uid://b62rg4sr6igl" path="res://Prefabs/BossArea.tscn" id="8_nx7i7"]
-[ext_resource type="PackedScene" uid="uid://coqw0f8oheshy" path="res://Prefabs/Fairy.tscn" id="9_076jx"]
+[ext_resource type="PackedScene" uid="uid://g26cdof1rtj6" path="res://Prefabs/Fairy.tscn" id="9_076jx"]
 
 [node name="World" type="Node2D"]
 script = ExtResource("1_2oqey")
-player_health = 10
-player_attack = 0
+player_health = 150
+player_attack = 35
 fairy_text = "Ne perds pas espoir ! Je suis sûre que tes efforts vont finir par payer… à force. Remplace ton bouclier par celui-ci, impossible que ses coups passent au travers. Courage !"
 boss_text = "T’es sûr qu’il y a pas genre d’autres donjons à faire ? Des trucs à ton niveau ? Même d’autres activités… t’as essayé l’escalade ? / Le ping-pong ? / …Non ?"
 

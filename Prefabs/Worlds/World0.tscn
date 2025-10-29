@@ -12,6 +12,7 @@
 
 [node name="World" type="Node2D"]
 script = ExtResource("1_dve6x")
+player_attack = 5
 fairy_text = "Aventurier ! Te voilà. Le donjon qui t’attend n’est pas le plus simple, mais on m’a vanté tes talents dans tout le royaume… /Je sais que ça sera un jeu d’enfant pour toi. /Viens à bout de ces lieux et des ennemis qui l’habitent, et amène moi le trésor que renferme le donjon… /Tu seras richement récompensé. Courage !"
 boss_text = "Sois le bienvenu dans mon antre, voyageur. Tu as réussi à parvenir jusqu’à là. /Sauras-tu faire preuve de la même ruse pour me battre et te montrer digne de mon trésor ? /Je te souhaite bonne chance…"
 
