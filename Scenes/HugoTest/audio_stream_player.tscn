@@ -1,7 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://dxcblpnd55jxh"]
+[gd_scene load_steps=3 format=3 uid="uid://c71snw0mmaiae"]
 
 [ext_resource type="Script" uid="uid://cwxanft4uhyc4" path="res://Scripts/audio_player.gd" id="1_l3nq3"]
-[ext_resource type="AudioStream" uid="uid://ce0rxsya1k8r6" path="res://Music/musique_lose.wav" id="2_d4o7f"]
+[ext_resource type="AudioStream" uid="uid://c34xhyhuhkc18" path="res://Music/MusiqueBoss_8BIT.mp3" id="2_d4o7f"]
 
 [node name="Master" type="AudioStreamPlayer" node_paths=PackedStringArray("MusicPlayer", "SfxPlayer", "MasterPlayer")]
 script = ExtResource("1_l3nq3")
@@ -11,7 +11,6 @@ MasterPlayer = NodePath(".")
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_d4o7f")
-volume_db = -40.675
 autoplay = true
 bus = &"Music"
 

@@ -1,18 +1,15 @@
-[gd_scene load_steps=6 format=3 uid="uid://vpdd72fy5qv5"]
+[gd_scene load_steps=5 format=3 uid="uid://vpdd72fy5qv5"]
 
 [ext_resource type="FontFile" uid="uid://bn4blc6gnxne4" path="res://Font/Jersey15-Regular.ttf" id="1_mgckw"]
-[ext_resource type="Texture2D" uid="uid://d0v5frqdiju0y" path="res://Sprites/credits_portraits.png" id="2_cwds7"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mgckw"]
 bg_color = Color(0.15294118, 0.15294118, 0.15294118, 1)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hfii6"]
-texture = ExtResource("2_cwds7")
 expand_margin_left = 5.0
 expand_margin_right = 5.0
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vfv05"]
-texture = ExtResource("2_cwds7")
 expand_margin_left = 5.0
 expand_margin_right = 5.0
 

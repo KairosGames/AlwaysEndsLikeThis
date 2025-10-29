@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://2k21p573eat2"
+path="res://.godot/imported/Swoosh épée.wav-7d11a0c93c9a6d60f0da542304bc5a00.sample"
+
+[deps]
+
+source_file="res://Music/SFx/Attaque/Swoosh épée.wav"
+dest_files=["res://.godot/imported/Swoosh épée.wav-7d11a0c93c9a6d60f0da542304bc5a00.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

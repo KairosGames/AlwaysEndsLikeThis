@@ -16,7 +16,6 @@ func load_next_world():
 func load_world(world: PackedScene):
 	player.is_controlled_by_player = false
 	player.move_dir = Vector2.ZERO
-	await game.scene_transition.show_transition()
 	var new_world := world.instantiate() as World
 	if current_world:
 		current_world.queue_free()
