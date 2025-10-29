@@ -1,4 +1,4 @@
-extends CharacterBody2D
+class_name Enemy extends CharacterBody2D
 
 const GRAVITY := 98
 const MOVE_SPEED := 100
