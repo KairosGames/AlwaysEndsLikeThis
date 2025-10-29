@@ -1,5 +1,6 @@
 class_name World extends Node2D
 
+@onready var game: Game = $/root/Game
 @onready var player_spawn: Node2D = $PlayerSpawn
 
 @export var player_health: int = 100

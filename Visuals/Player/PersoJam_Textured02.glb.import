@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://3vdhxq1a2qwq"
-path="res://.godot/imported/PersoJam_Textured01.glb-e30cde69270a8d096d57cf4e5d51b0b3.scn"
+uid="uid://cypusstj7jcui"
+path="res://.godot/imported/PersoJam_Textured02.glb-b594928152c09802674c345ce9f5b311.scn"
 
 [deps]
 
-source_file="res://Visuals/Player/PersoJam_Textured01.glb"
-dest_files=["res://.godot/imported/PersoJam_Textured01.glb-e30cde69270a8d096d57cf4e5d51b0b3.scn"]
+source_file="res://Visuals/Player/PersoJam_Textured02.glb"
+dest_files=["res://.godot/imported/PersoJam_Textured02.glb-b594928152c09802674c345ce9f5b311.scn"]
 
 [params]
 

@@ -21,7 +21,9 @@ text = "Start"
 script = ExtResource("2_opoxm")
 
 [node name="Click" type="AudioStreamPlayer" parent="."]
-volume_db = -30.969
+stream = ExtResource("3_0kwur")
+volume_db = -50.0
+bus = &"SFX"
 
 [node name="Hover" type="AudioStreamPlayer" parent="."]
 
