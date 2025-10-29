@@ -7,6 +7,7 @@ class_name Player extends CharacterBody2D
 @export var player3D: Node3D
 @export var animation_player: AnimationPlayer
 @export var health_bar: ProgressBar
+@export var damage_shape: CollisionShape2D
 
 @export_category("Player Movement")
 @export var max_speed: float = 500.0
@@ -25,8 +26,7 @@ class_name Player extends CharacterBody2D
 var move_dir: Vector2 = Vector2.ZERO
 var is_alive: bool = true
 var is_controlled_by_player: bool = false
-var is_jumping: bool = false
-var is_in_jump_ntm: bool = false
+var is_waiting_animation: bool = false
 
 
 func _process(_delta: float) -> void:
@@ -50,6 +50,8 @@ func get_input():
 		move_dir = Vector2.ZERO
 	if Input.is_action_just_pressed("Jump"):
 		jump()
+	if Input.is_action_just_pressed("Attack"):
+		attack()
 
 
 func move_player(delta: float):
@@ -88,28 +90,27 @@ func jump():
 	if is_on_floor():
 		if not is_controlled_by_player or game.active_dialogbox or not is_alive: return
 		velocity.y = -jump_strength
-		is_jumping = true
+		is_waiting_animation = true
 		animation_player.speed_scale = 1.5
 		animation_player.play("JUMP_IN_PLACE")
-		await get_tree().create_timer(0.3).timeout
-		is_in_jump_ntm = true
+		await get_tree().create_timer(1.0417 / 1.5).timeout
+		is_waiting_animation = false
 
 
 func set_player3D():
 	if not is_alive: return
 	if velocity.x > 0:
 		player3D.global_rotation.y = -80.0
+		if damage_shape.position.x < 0 : damage_shape.position.x = -damage_shape.position.x
 	elif velocity.x < 0:
 		player3D.global_rotation.y = 80.0
-	if velocity.x == 0.0 && not is_jumping:
+		if damage_shape.position.x > 0 : damage_shape.position.x = -damage_shape.position.x
+	if velocity.x == 0.0 && not is_waiting_animation:
 		animation_player.play("IDLE")
 		return
-	if not is_jumping:	
+	if not is_waiting_animation:
 		animation_player.speed_scale = 3.0 * abs(velocity.x/max_speed)
 		animation_player.play("WALK")
-	if is_on_floor() and is_in_jump_ntm:
-		is_jumping = false
-		is_in_jump_ntm = false
 
 
 func take_damages(damages: int):
@@ -122,7 +123,15 @@ func take_damages(damages: int):
 	health_bar.value = health
 
 
+func attack():
+	if is_waiting_animation or game.active_dialogbox or not is_controlled_by_player: return
+	is_waiting_animation = true
+	animation_player.speed_scale = 3.0
+	animation_player.play("ATTACK")
+	await get_tree().create_timer(1.0417/3.0).timeout
+	is_waiting_animation = false
+
+
 func die():
 	is_alive = false
-	is_jumping = false
-	is_in_jump_ntm = false
+	animation_player.play("DEATH")

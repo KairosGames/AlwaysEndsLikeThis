@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=4 uid="uid://ijstcswtyvgp"]
+[gd_scene load_steps=24 format=4 uid="uid://ijstcswtyvgp"]
 
 [ext_resource type="Script" uid="uid://borqw4sr0rd3e" path="res://Scripts/Enemy.gd" id="1_yfbri"]
 [ext_resource type="Texture2D" uid="uid://dhn0oj05ll7fi" path="res://Visuals/Enemy/Rat05_palette.png" id="2_gti1y"]
@@ -904,10 +904,35 @@ _data = {
 &"WALK": SubResource("Animation_tg6up")
 }
 
-[node name="Enemy" type="CharacterBody2D"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bftkq"]
+content_margin_left = 2.0
+content_margin_top = 2.0
+content_margin_right = 2.0
+content_margin_bottom = 2.0
+bg_color = Color(0.101960786, 0.101960786, 0.101960786, 0.5803922)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+corner_detail = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4fqf7"]
+content_margin_left = 2.0
+content_margin_top = 2.0
+content_margin_right = 2.0
+content_margin_bottom = 2.0
+bg_color = Color(0.7578125, 0.18945313, 0.18945313, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+corner_detail = 6
+
+[node name="Enemy" type="CharacterBody2D" node_paths=PackedStringArray("health_bar")]
 collision_layer = 2
 collision_mask = 10
 script = ExtResource("1_yfbri")
+health_bar = NodePath("HealthBar")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(2, 27)
@@ -1103,3 +1128,13 @@ modulate = Color(1, 0, 0, 1)
 top_level = true
 scale = Vector2(0.4375, 0.4375)
 texture = ExtResource("4_bftkq")
+
+[node name="HealthBar" type="ProgressBar" parent="."]
+offset_left = -45.0
+offset_top = -83.0
+offset_right = 42.0
+offset_bottom = -75.0
+theme_override_styles/background = SubResource("StyleBoxFlat_bftkq")
+theme_override_styles/fill = SubResource("StyleBoxFlat_4fqf7")
+value = 50.0
+show_percentage = false
