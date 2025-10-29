@@ -23,6 +23,9 @@ enum EnemyState {
 @onready var walking_vision_ray_cast_2d: RayCast2D = $VisionNode/WalkingVisionRayCast2D
 @onready var walking_ray_cast_2d: RayCast2D = $WalkingRayCast2D
 
+@export var health_bar: ProgressBar
+var health: int = 100
+
 var enter_state_time := 0
 
 var current_idle_time := 0.0
@@ -36,6 +39,8 @@ var walking_point_steps := 100.0
 
 func _ready() -> void:
 	enter_state(EnemyState.Idle)
+	health_bar.max_value = health
+	health_bar.max_value = health
 
 func _process(delta: float) -> void:
 	handle_state(delta)
@@ -136,3 +141,8 @@ func update_walking_points():
 		right_sprite_2d.global_position = right_position
 	
 	walking_points = [left_position, right_position]
+
+
+func take_damages(damages: int):
+	health -= damages
+	health_bar.value = health
