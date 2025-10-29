@@ -1,0 +1,484 @@
+[gd_scene load_steps=4 format=3 uid="uid://vpdd72fy5qv5"]
+
+[ext_resource type="FontFile" uid="uid://bn4blc6gnxne4" path="res://Font/Jersey15-Regular.ttf" id="1_mgckw"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mgckw"]
+bg_color = Color(0.15294118, 0.15294118, 0.15294118, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lo87q"]
+bg_color = Color(0.6, 0.6, 0.6, 0.07058824)
+
+[node name="CreditMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_mgckw")
+
+[node name="Titre" type="Label" parent="."]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -149.5
+offset_top = 119.5
+offset_right = -52.5
+offset_bottom = 161.5
+grow_horizontal = 2
+scale = Vector2(3.619, 3.003)
+theme_override_fonts/font = ExtResource("1_mgckw")
+theme_override_font_sizes/font_size = 41
+text = "TEAM :"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 34
+alignment = 1
+
+[node name="Panel" type="Panel" parent="HBoxContainer"]
+custom_minimum_size = Vector2(213.675, 300)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_lo87q")
+
+[node name="Krokonut" type="Label" parent="HBoxContainer/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -35.559998
+offset_top = -141.0
+offset_right = 37.440002
+offset_bottom = -118.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_mgckw")
+theme_override_font_sizes/font_size = 21
+text = "Krokonut"
+horizontal_alignment = 1
+
+[node name="Job" type="Label" parent="HBoxContainer/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -90.56
+offset_top = -92.0
+offset_right = -17.559998
+offset_bottom = -69.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_mgckw")
+theme_override_font_sizes/font_size = 21
+text = "Job :"
+horizontal_alignment = 1
+
+[node name="Description" type="Label" parent="HBoxContainer/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -94.0
+offset_top = -54.0
+offset_right = 98.0
+offset_bottom = -31.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_mgckw")
+theme_override_font_sizes/font_size = 21
+text = "Concept art & Models 3D"
+horizontal_alignment = 1
+
+[node name="Panel2" type="Panel" parent="HBoxContainer"]
+custom_minimum_size = Vector2(213.675, 300)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_lo87q")
+
+[node name="Kaïros" type="Label" parent="HBoxContainer/Panel2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -36.0
+offset_top = -139.0
+offset_right = 37.0
+offset_bottom = -116.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_mgckw")
+theme_override_font_sizes/font_size = 21
+text = "Kaïros"
+horizontal_alignment = 1
+
+[node name="Job" type="Label" parent="HBoxContainer/Panel2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -89.56
+offset_top = -93.0
+offset_right = -16.559998
+offset_bottom = -70.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_mgckw")
+theme_override_font_sizes/font_size = 21
+text = "Job :"
+horizontal_alignment = 1
+
+[node name="Description" type="Label" parent="HBoxContainer/Panel2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -94.0
+offset_top = -54.0
+offset_right = 98.0
+offset_bottom = -31.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_mgckw")
+theme_override_font_sizes/font_size = 21
+text = "Programmation 
+Player & IA"
+horizontal_alignment = 1
+
+[node name="Panel3" type="Panel" parent="HBoxContainer"]
+custom_minimum_size = Vector2(213.675, 300)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_lo87q")
+
+[node name="Aznoqmous" type="Label" parent="HBoxContainer/Panel3"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -42.83753
+offset_top = -140.0
+offset_right = 44.162468
+offset_bottom = -117.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_mgckw")
+theme_override_font_sizes/font_size = 21
+text = "Aznoqmous"
+horizontal_alignment = 1
+
+[node name="Job" type="Label" parent="HBoxContainer/Panel3"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -89.56
+offset_top = -93.0
+offset_right = -16.559998
+offset_bottom = -70.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_mgckw")
+theme_override_font_sizes/font_size = 21
+text = "Job :"
+horizontal_alignment = 1
+
+[node name="Description" type="Label" parent="HBoxContainer/Panel3"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -94.0
+offset_top = -54.0
+offset_right = 98.0
+offset_bottom = -31.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_mgckw")
+theme_override_font_sizes/font_size = 21
+text = "Programmation 
+Player & IA"
+horizontal_alignment = 1
+
+[node name="Panel4" type="Panel" parent="HBoxContainer"]
+custom_minimum_size = Vector2(213.675, 300)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_lo87q")
+
+[node name="ColorMan" type="Label" parent="HBoxContainer/Panel4"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -36.0
+offset_top = -139.0
+offset_right = 37.0
+offset_bottom = -116.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_mgckw")
+theme_override_font_sizes/font_size = 21
+text = "ColorMan"
+horizontal_alignment = 1
+
+[node name="Job" type="Label" parent="HBoxContainer/Panel4"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -89.56
+offset_top = -93.0
+offset_right = -16.559998
+offset_bottom = -70.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_mgckw")
+theme_override_font_sizes/font_size = 21
+text = "Job :"
+horizontal_alignment = 1
+
+[node name="Description" type="Label" parent="HBoxContainer/Panel4"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -94.0
+offset_top = -54.0
+offset_right = 98.0
+offset_bottom = -31.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_mgckw")
+theme_override_font_sizes/font_size = 21
+text = "Models 3D"
+horizontal_alignment = 1
+
+[node name="Panel5" type="Panel" parent="HBoxContainer"]
+custom_minimum_size = Vector2(213.675, 300)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_lo87q")
+
+[node name="Cal" type="Label" parent="HBoxContainer/Panel5"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -36.0
+offset_top = -139.0
+offset_right = 37.0
+offset_bottom = -116.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_mgckw")
+theme_override_font_sizes/font_size = 21
+text = "Cal"
+horizontal_alignment = 1
+
+[node name="Job" type="Label" parent="HBoxContainer/Panel5"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -89.56
+offset_top = -93.0
+offset_right = -16.559998
+offset_bottom = -70.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_mgckw")
+theme_override_font_sizes/font_size = 21
+text = "Job :"
+horizontal_alignment = 1
+
+[node name="Description" type="Label" parent="HBoxContainer/Panel5"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -94.0
+offset_top = -54.0
+offset_right = 98.0
+offset_bottom = -31.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_mgckw")
+theme_override_font_sizes/font_size = 21
+text = "GD / LD"
+horizontal_alignment = 1
+
+[node name="Panel6" type="Panel" parent="HBoxContainer"]
+custom_minimum_size = Vector2(213.675, 300)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_lo87q")
+
+[node name="Baxter" type="Label" parent="HBoxContainer/Panel6"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -36.0
+offset_top = -139.0
+offset_right = 37.0
+offset_bottom = -116.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_mgckw")
+theme_override_font_sizes/font_size = 21
+text = "Baxter"
+horizontal_alignment = 1
+
+[node name="Job" type="Label" parent="HBoxContainer/Panel6"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -89.56
+offset_top = -93.0
+offset_right = -16.559998
+offset_bottom = -70.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_mgckw")
+theme_override_font_sizes/font_size = 21
+text = "Job :"
+horizontal_alignment = 1
+
+[node name="Description" type="Label" parent="HBoxContainer/Panel6"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -94.0
+offset_top = -54.0
+offset_right = 98.0
+offset_bottom = -31.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_mgckw")
+theme_override_font_sizes/font_size = 21
+text = "Illustrations & Tilesets"
+horizontal_alignment = 1
+
+[node name="Panel7" type="Panel" parent="HBoxContainer"]
+custom_minimum_size = Vector2(213.675, 300)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_lo87q")
+
+[node name="Baxter" type="Label" parent="HBoxContainer/Panel7"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -36.0
+offset_top = -139.0
+offset_right = 37.0
+offset_bottom = -116.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_mgckw")
+theme_override_font_sizes/font_size = 21
+text = "LeMugz"
+horizontal_alignment = 1
+
+[node name="Job" type="Label" parent="HBoxContainer/Panel7"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -89.56
+offset_top = -93.0
+offset_right = -16.559998
+offset_bottom = -70.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_mgckw")
+theme_override_font_sizes/font_size = 21
+text = "Job :"
+horizontal_alignment = 1
+
+[node name="Description" type="Label" parent="HBoxContainer/Panel7"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -94.0
+offset_top = -54.0
+offset_right = 98.0
+offset_bottom = -31.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_mgckw")
+theme_override_font_sizes/font_size = 21
+text = "Programmation 
+Dialog_System & UI"
+horizontal_alignment = 1
