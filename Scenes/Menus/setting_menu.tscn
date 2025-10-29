@@ -122,9 +122,12 @@ theme_override_constants/separation = 44
 
 [node name="Master" parent="Panel/VBoxContainer2" instance=ExtResource("2_kfal7")]
 layout_mode = 2
+bus_name = "Master"
 
-[node name="Musc" parent="Panel/VBoxContainer2" instance=ExtResource("2_kfal7")]
+[node name="Music" parent="Panel/VBoxContainer2" instance=ExtResource("2_kfal7")]
 layout_mode = 2
+bus_name = "Music"
 
 [node name="Sfx" parent="Panel/VBoxContainer2" instance=ExtResource("2_kfal7")]
 layout_mode = 2
+bus_name = "SFX"
