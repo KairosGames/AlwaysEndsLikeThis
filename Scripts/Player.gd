@@ -25,6 +25,8 @@ class_name Player extends CharacterBody2D
 var move_dir: Vector2 = Vector2.ZERO
 var is_alive: bool = true
 var is_controlled_by_player: bool = false
+var is_jumping: bool = false
+var is_in_jump_ntm: bool = false
 
 
 func _process(_delta: float) -> void:
@@ -54,7 +56,7 @@ func move_player(delta: float):
 	if game.active_dialogbox: return;
 	handle_acceleration(delta)
 	handle_gravity(delta)
-	set_player3D_rotation()
+	set_player3D()
 	move_and_slide()
 
 
@@ -83,20 +85,31 @@ func handle_gravity(delta: float):
 
 func jump():
 	if is_on_floor():
-		if not is_controlled_by_player: return
+		if not is_controlled_by_player or game.active_dialogbox or not is_alive: return
 		velocity.y = -jump_strength
+		is_jumping = true
+		animation_player.speed_scale = 1.5
+		animation_player.play("JUMP_IN_PLACE")
+		await get_tree().create_timer(0.3).timeout
+		is_in_jump_ntm = true
 
 
-func set_player3D_rotation():
+func set_player3D():
+	if not is_alive: return
 	if velocity.x > 0:
 		player3D.global_rotation.y = -80.0
 	elif velocity.x < 0:
 		player3D.global_rotation.y = 80.0
-	if velocity.x == 0.0:
+	if velocity.x == 0.0 && not is_jumping:
 		animation_player.play("IDLE")
 		return
-	animation_player.speed_scale = 3.0 * abs(velocity.x/max_speed)
-	animation_player.play("WALK")
+	if not is_jumping:	
+		animation_player.speed_scale = 3.0 * abs(velocity.x/max_speed)
+		animation_player.play("WALK")
+	if is_on_floor() and is_in_jump_ntm:
+		is_jumping = false
+		is_in_jump_ntm = false
+
 
 func take_damages(damages: int):
 	health -= damages
@@ -105,7 +118,10 @@ func take_damages(damages: int):
 		is_alive = false
 		is_controlled_by_player = false
 		die()
+	health_bar.value = health
 
 
 func die():
-	print("player is dead")
+	is_alive = false
+	is_jumping = false
+	is_in_jump_ntm = false

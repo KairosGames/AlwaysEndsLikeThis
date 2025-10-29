@@ -16,7 +16,7 @@ func _process(_delta: float) -> void:
 	if not is_at_target:
 		var dist_vec: Vector2 = target.global_position - global_position
 		if (target.global_position - global_position).length() > 200.0:
-			global_position = lerp(global_position, target.global_position - (dist_vec.normalized() * 190), 0.008)
+			global_position = lerp(global_position, target.global_position - (dist_vec.normalized() * 190), 0.012)
 		else:
 			is_at_target = true
 			var dialogbox = game.new_dialogbox("FAIRY", game.main_scene.current_world.fairy_text)

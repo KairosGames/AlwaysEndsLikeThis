@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dwqsjvxlc4k8h"
-path.s3tc="res://.godot/imported/PersoJam_Textured01_FACE_SHADOW.png-c0a5c3f71200b7edc9c17b92538e7daf.s3tc.ctex"
+uid="uid://cbyflwmvlwrn5"
+path.s3tc="res://.godot/imported/PersoJam_Textured02_palette.png-7f6e7952fad40c36e41dfa4a49d7e1e2.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "ab921cddf410694ab0e9ae950d382330"
+"md5": "dac4b685d2952f2e23733ce810c1dc77"
 }
 
 [deps]
 
-source_file="res://Visuals/Player/PersoJam_Textured01_FACE_SHADOW.png"
-dest_files=["res://.godot/imported/PersoJam_Textured01_FACE_SHADOW.png-c0a5c3f71200b7edc9c17b92538e7daf.s3tc.ctex"]
+source_file="res://Visuals/Player/PersoJam_Textured02_palette.png"
+dest_files=["res://.godot/imported/PersoJam_Textured02_palette.png-7f6e7952fad40c36e41dfa4a49d7e1e2.s3tc.ctex"]
 
 [params]
 
