@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://d1iy4k0c6rb3i"]
+[gd_scene load_steps=6 format=3 uid="uid://d1iy4k0c6rb3i"]
 
 [ext_resource type="PackedScene" uid="uid://cqajbt5ke7bty" path="res://Prefabs/Player3D.tscn" id="1_um8lo"]
 [ext_resource type="Script" uid="uid://dgyvbdpxwje2d" path="res://Scripts/Player.gd" id="1_x3d5u"]
@@ -6,6 +6,30 @@
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_um8lo"]
 radius = 50.0
 height = 170.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x3d5u"]
+content_margin_left = 2.0
+content_margin_top = 2.0
+content_margin_right = 2.0
+content_margin_bottom = 2.0
+bg_color = Color(0.101960786, 0.101960786, 0.101960786, 0.5803922)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+corner_detail = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b43ah"]
+content_margin_left = 2.0
+content_margin_top = 2.0
+content_margin_right = 2.0
+content_margin_bottom = 2.0
+bg_color = Color(0.8901961, 0.11764706, 0.24705882, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+corner_detail = 6
 
 [node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("ray_cast", "player3D", "animation_player")]
 collision_mask = 15
@@ -61,6 +85,16 @@ transform = Transform3D(-0.9940451, -0.08703562, 0.06556322, 0.088173375, -0.995
 
 [node name="Sword" parent="SubViewportParent/SubViewportContainer/SubViewport/Player3D/PersoJam_Textured01/ArmaturePerso/Skeleton3D/Bras2_R" index="0"]
 transform = Transform3D(-0.9940454, 0.081834406, -0.071950555, -0.08703573, -0.19899337, 0.9761283, 0.065563194, 0.97657806, 0.20493096, 0.029644769, 1.4486384, 0.11110371)
+
+[node name="HealthBar" type="ProgressBar" parent="."]
+offset_left = -45.0
+offset_top = -160.0
+offset_right = 42.0
+offset_bottom = -152.0
+theme_override_styles/background = SubResource("StyleBoxFlat_x3d5u")
+theme_override_styles/fill = SubResource("StyleBoxFlat_b43ah")
+value = 50.0
+show_percentage = false
 
 [editable path="SubViewportParent/SubViewportContainer/SubViewport/Player3D"]
 [editable path="SubViewportParent/SubViewportContainer/SubViewport/Player3D/PersoJam_Textured01"]

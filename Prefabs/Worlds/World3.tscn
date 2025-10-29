@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://xm3pue23rkop"]
+[gd_scene load_steps=10 format=3 uid="uid://xm3pue23rkop"]
 
 [ext_resource type="Script" uid="uid://c3y2meyoymn72" path="res://Scripts/World.gd" id="1_xt6q6"]
 [ext_resource type="Texture2D" uid="uid://mmg1ht5p3lhu" path="res://Visuals/Parralax/background.png" id="2_6076x"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://btvrpn605y0cc" path="res://Prefabs/Level.tscn" id="6_tqrxe"]
 [ext_resource type="PackedScene" uid="uid://ijstcswtyvgp" path="res://Prefabs/Enemy.tscn" id="7_64tod"]
 [ext_resource type="PackedScene" uid="uid://b62rg4sr6igl" path="res://Prefabs/BossArea.tscn" id="8_3jmoo"]
+[ext_resource type="PackedScene" uid="uid://coqw0f8oheshy" path="res://Prefabs/Fairy.tscn" id="9_6076x"]
 
 [node name="World" type="Node2D"]
 script = ExtResource("1_xt6q6")
@@ -74,3 +75,7 @@ position = Vector2(3516, 883)
 [node name="BossArea" parent="." instance=ExtResource("8_3jmoo")]
 position = Vector2(11146, 1534)
 monitoring = false
+
+[node name="Fairy" parent="." node_paths=PackedStringArray("target") instance=ExtResource("9_6076x")]
+position = Vector2(696, -557)
+target = NodePath("../PlayerSpawn")

@@ -1,14 +1,15 @@
-[gd_scene load_steps=6 format=3 uid="uid://codg67otdv1ql"]
+[gd_scene load_steps=7 format=3 uid="uid://codg67otdv1ql"]
 
 [ext_resource type="FontFile" uid="uid://bn4blc6gnxne4" path="res://Font/Jersey15-Regular.ttf" id="1_38aua"]
 [ext_resource type="Script" uid="uid://hyv4at8r63dd" path="res://Scripts/main_menu.gd" id="1_pha2q"]
+[ext_resource type="PackedScene" uid="uid://bfyh0fnymn0et" path="res://Scenes/Menus/Button.tscn" id="2_5wi6m"]
 [ext_resource type="PackedScene" uid="uid://vpdd72fy5qv5" path="res://Scenes/Menus/credit_menu.tscn" id="3_penys"]
 [ext_resource type="PackedScene" uid="uid://cnkqxe2ath8s1" path="res://Scenes/Menus/setting_menu.tscn" id="4_aur2u"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_aur2u"]
 bg_color = Color(0.15294118, 0.15294118, 0.15294118, 1)
 
-[node name="MainMenu" type="Control" node_paths=PackedStringArray("_start_button", "_options_button", "_credits_button", "_exit_button")]
+[node name="MainMenu" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -16,10 +17,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_pha2q")
-_start_button = NodePath("VBoxContainer/Start")
-_options_button = NodePath("VBoxContainer/Options")
-_credits_button = NodePath("VBoxContainer/Credits")
-_exit_button = NodePath("VBoxContainer/Exit")
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 1
@@ -47,33 +44,30 @@ grow_vertical = 2
 scale = Vector2(3.0691907, 2.72)
 alignment = 1
 
-[node name="Start" type="Button" parent="VBoxContainer"]
-texture_filter = 1
+[node name="Start" parent="VBoxContainer" node_paths=PackedStringArray("Menu") instance=ExtResource("2_5wi6m")]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("1_38aua")
-theme_override_font_sizes/font_size = 21
-text = "Start"
+is_start_button = true
+Menu = NodePath("../..")
 
-[node name="Options" type="Button" parent="VBoxContainer"]
-texture_filter = 1
+[node name="Options" parent="VBoxContainer" node_paths=PackedStringArray("node_to_set", "Menu") instance=ExtResource("2_5wi6m")]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("1_38aua")
-theme_override_font_sizes/font_size = 21
 text = "Options"
+node_to_set = NodePath("../../Menus/SettingMenu")
+_set_node_visible = true
+Menu = NodePath("../..")
 
-[node name="Credits" type="Button" parent="VBoxContainer"]
-texture_filter = 1
+[node name="Credits" parent="VBoxContainer" node_paths=PackedStringArray("node_to_set", "Menu") instance=ExtResource("2_5wi6m")]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("1_38aua")
-theme_override_font_sizes/font_size = 21
 text = "Credits"
+node_to_set = NodePath("../../Menus/CreditMenu")
+_set_node_visible = true
+Menu = NodePath("../..")
 
-[node name="Exit" type="Button" parent="VBoxContainer"]
-texture_filter = 1
+[node name="Exit" parent="VBoxContainer" node_paths=PackedStringArray("Menu") instance=ExtResource("2_5wi6m")]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("1_38aua")
-theme_override_font_sizes/font_size = 21
 text = "Exit"
+is_exit_button = true
+Menu = NodePath("../..")
 
 [node name="Titre" type="Label" parent="."]
 texture_filter = 1
@@ -100,50 +94,42 @@ horizontal_alignment = 1
 [node name="CreditMenu" parent="Menus" instance=ExtResource("3_penys")]
 visible = false
 
-[node name="BackButton" type="Button" parent="Menus/CreditMenu"]
-texture_filter = 1
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -34.0
-offset_top = -235.0
-offset_right = 11.0
-offset_bottom = -204.0
-grow_horizontal = 2
-grow_vertical = 0
-scale = Vector2(2.1599998, 1.7385365)
-theme_override_fonts/font = ExtResource("1_38aua")
-theme_override_font_sizes/font_size = 21
-text = "Back"
+[node name="BackButton1" parent="Menus/CreditMenu" node_paths=PackedStringArray("node_to_set", "Menu") instance=ExtResource("2_5wi6m")]
+layout_mode = 0
+offset_left = 926.0
+offset_top = 845.0
+offset_right = 964.0
+offset_bottom = 875.0
+scale = Vector2(1.313, 1.313)
+text = "Back
+"
+node_to_set = NodePath("..")
+Menu = NodePath("../../..")
 
 [node name="SettingMenu" parent="Menus" instance=ExtResource("4_aur2u")]
 visible = false
 
-[node name="BackButton2" type="Button" parent="Menus/SettingMenu"]
-texture_filter = 1
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -34.0
-offset_top = -235.0
-offset_right = 11.0
-offset_bottom = -204.0
-grow_horizontal = 2
-grow_vertical = 0
-scale = Vector2(2.1599998, 1.7385365)
-theme_override_fonts/font = ExtResource("1_38aua")
-theme_override_font_sizes/font_size = 21
-text = "Back"
+[node name="BackButton1" parent="Menus/SettingMenu" node_paths=PackedStringArray("node_to_set", "Menu") instance=ExtResource("2_5wi6m")]
+layout_mode = 0
+offset_left = 926.0
+offset_top = 845.0
+offset_right = 970.0
+offset_bottom = 875.0
+scale = Vector2(1.3127968, 1.2991267)
+text = "Back
+"
+node_to_set = NodePath("..")
+Menu = NodePath("../../..")
+
+[node name="AudioUI" type="Node" parent="."]
+
+[node name="Buttons" type="Node" parent="AudioUI"]
+
+[node name="Click" type="AudioStreamPlayer" parent="AudioUI/Buttons"]
+
+[node name="Hover" type="AudioStreamPlayer" parent="AudioUI/Buttons"]
 
 [connection signal="pressed" from="VBoxContainer/Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="VBoxContainer/Options" to="." method="_on_options_pressed"]
 [connection signal="pressed" from="VBoxContainer/Credits" to="." method="_on_credits_pressed"]
 [connection signal="pressed" from="VBoxContainer/Exit" to="." method="_on_exit_pressed"]
-[connection signal="pressed" from="Menus/CreditMenu/BackButton" to="." method="_on_back_button_pressed"]
-[connection signal="pressed" from="Menus/SettingMenu/BackButton2" to="." method="_on_back_button_2_pressed"]
