@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://coqw0f8oheshy"]
+[gd_scene load_steps=5 format=3 uid="uid://g26cdof1rtj6"]
 
 [ext_resource type="Script" uid="uid://bv3xtjrk3eqyo" path="res://Scripts/Fairy.gd" id="1_m2m5j"]
 [ext_resource type="Texture2D" uid="uid://jnup0lna4nae" path="res://Visuals/Fairy/FAIRY1.png" id="2_ab4ih"]

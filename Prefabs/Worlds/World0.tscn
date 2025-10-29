@@ -8,14 +8,15 @@
 [ext_resource type="PackedScene" uid="uid://btvrpn605y0cc" path="res://Prefabs/Level.tscn" id="6_lc2vd"]
 [ext_resource type="PackedScene" uid="uid://ijstcswtyvgp" path="res://Prefabs/Enemy.tscn" id="7_xfjvo"]
 [ext_resource type="PackedScene" uid="uid://b62rg4sr6igl" path="res://Prefabs/BossArea.tscn" id="8_mxifb"]
-[ext_resource type="PackedScene" uid="uid://coqw0f8oheshy" path="res://Prefabs/Fairy.tscn" id="9_xqamm"]
+[ext_resource type="PackedScene" uid="uid://g26cdof1rtj6" path="res://Prefabs/Fairy.tscn" id="9_xqamm"]
 
 [node name="World" type="Node2D"]
 script = ExtResource("1_dve6x")
+fairy_text = "Aventurier ! Te voilà. Le donjon qui t’attend n’est pas le plus simple, mais on m’a vanté tes talents dans tout le royaume… /Je sais que ça sera un jeu d’enfant pour toi. /Viens à bout de ces lieux et des ennemis qui l’habitent, et amène moi le trésor que renferme le donjon… /Tu seras richement récompensé. Courage !"
 boss_text = "Sois le bienvenu dans mon antre, voyageur. Tu as réussi à parvenir jusqu’à là. /Sauras-tu faire preuve de la même ruse pour me battre et te montrer digne de mon trésor ? /Je te souhaite bonne chance…"
 
 [node name="PlayerSpawn" type="Node2D" parent="."]
-position = Vector2(232, 932)
+position = Vector2(4, 827)
 
 [node name="Background" type="Node2D" parent="."]
 position = Vector2(960, 540)

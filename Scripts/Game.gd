@@ -6,8 +6,8 @@ const DIALOG_BOX = preload("res://Prefabs/DialogBox.tscn")
 var active_dialogbox : DialogBox
 
 func _ready():
-	main_scene.load_world(main_scene.worlds[0])
-	
+	scene_transition.reset_transition_screen()
+
 func new_dialogbox(name_text, text) -> DialogBox:
 	if active_dialogbox: active_dialogbox.queue_free()
 	var dialogbox := DIALOG_BOX.instantiate() as DialogBox

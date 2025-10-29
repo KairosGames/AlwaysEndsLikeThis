@@ -8,9 +8,9 @@
 [ext_resource type="PackedScene" uid="uid://btvrpn605y0cc" path="res://Prefabs/Level.tscn" id="6_i0u7a"]
 [ext_resource type="PackedScene" uid="uid://ijstcswtyvgp" path="res://Prefabs/Enemy.tscn" id="7_4rctf"]
 [ext_resource type="PackedScene" uid="uid://b62rg4sr6igl" path="res://Prefabs/BossArea.tscn" id="8_gh10q"]
-[ext_resource type="PackedScene" uid="uid://coqw0f8oheshy" path="res://Prefabs/Fairy.tscn" id="9_ghh8x"]
+[ext_resource type="PackedScene" uid="uid://g26cdof1rtj6" path="res://Prefabs/Fairy.tscn" id="9_ghh8x"]
 
-[node name="World" type="Node2D"]
+[node name="World2" type="Node2D"]
 script = ExtResource("1_jfg0p")
 player_health = 0
 fairy_text = "Ne sois pas trop dur avec toi-même. /Tu n’étais pas assez équipé, et j’aurais dû le savoir. /Tiens, prend cette épée, ça sera plus facile avec."

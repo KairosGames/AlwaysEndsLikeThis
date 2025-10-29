@@ -1,10 +1,12 @@
-[gd_scene load_steps=7 format=3 uid="uid://codg67otdv1ql"]
+[gd_scene load_steps=9 format=3 uid="uid://codg67otdv1ql"]
 
 [ext_resource type="FontFile" uid="uid://bn4blc6gnxne4" path="res://Font/Jersey15-Regular.ttf" id="1_38aua"]
 [ext_resource type="Script" uid="uid://hyv4at8r63dd" path="res://Scripts/main_menu.gd" id="1_pha2q"]
-[ext_resource type="PackedScene" uid="uid://bfyh0fnymn0et" path="res://Scenes/Menus/Button.tscn" id="2_5wi6m"]
+[ext_resource type="PackedScene" uid="uid://c0hlex2yp005y" path="res://Scenes/Menus/Button.tscn" id="2_5wi6m"]
+[ext_resource type="Texture2D" uid="uid://bomud35hf7gnb" path="res://Sprites/ntmhugo.png" id="2_neey8"]
 [ext_resource type="PackedScene" uid="uid://vpdd72fy5qv5" path="res://Scenes/Menus/credit_menu.tscn" id="3_penys"]
 [ext_resource type="PackedScene" uid="uid://cnkqxe2ath8s1" path="res://Scenes/Menus/setting_menu.tscn" id="4_aur2u"]
+[ext_resource type="Texture2D" uid="uid://nxiqudnk8jme" path="res://Sprites/logo_du_jeu_transparent.png" id="6_chkef"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_aur2u"]
 bg_color = Color(0.15294118, 0.15294118, 0.15294118, 1)
@@ -19,6 +21,7 @@ grow_vertical = 2
 script = ExtResource("1_pha2q")
 
 [node name="Panel" type="Panel" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -26,6 +29,17 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_aur2u")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_neey8")
+expand_mode = 1
+stretch_mode = 5
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 texture_filter = 1
@@ -36,9 +50,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -89.0
-offset_top = -151.0
+offset_top = -62.0
 offset_right = -19.0
-offset_bottom = -15.0
+offset_bottom = 74.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(3.0691907, 2.72)
@@ -46,30 +60,25 @@ alignment = 1
 
 [node name="Start" parent="VBoxContainer" node_paths=PackedStringArray("Menu") instance=ExtResource("2_5wi6m")]
 layout_mode = 2
-is_start_button = true
 Menu = NodePath("../..")
 
-[node name="Options" parent="VBoxContainer" node_paths=PackedStringArray("node_to_set", "Menu") instance=ExtResource("2_5wi6m")]
+[node name="Options" parent="VBoxContainer" node_paths=PackedStringArray("Menu") instance=ExtResource("2_5wi6m")]
 layout_mode = 2
 text = "Options"
-node_to_set = NodePath("../../Menus/SettingMenu")
-_set_node_visible = true
 Menu = NodePath("../..")
 
-[node name="Credits" parent="VBoxContainer" node_paths=PackedStringArray("node_to_set", "Menu") instance=ExtResource("2_5wi6m")]
+[node name="Credits" parent="VBoxContainer" node_paths=PackedStringArray("Menu") instance=ExtResource("2_5wi6m")]
 layout_mode = 2
 text = "Credits"
-node_to_set = NodePath("../../Menus/CreditMenu")
-_set_node_visible = true
 Menu = NodePath("../..")
 
 [node name="Exit" parent="VBoxContainer" node_paths=PackedStringArray("Menu") instance=ExtResource("2_5wi6m")]
 layout_mode = 2
 text = "Exit"
-is_exit_button = true
 Menu = NodePath("../..")
 
 [node name="Titre" type="Label" parent="."]
+visible = false
 texture_filter = 1
 layout_mode = 1
 anchors_preset = 8
@@ -89,12 +98,28 @@ theme_override_font_sizes/font_size = 41
 text = "ENJAM"
 horizontal_alignment = 1
 
+[node name="LogoTexture" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 661.0
+offset_top = 29.0
+offset_right = -661.0
+offset_bottom = -677.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_chkef")
+expand_mode = 1
+stretch_mode = 5
+
 [node name="Menus" type="Node" parent="."]
 
 [node name="CreditMenu" parent="Menus" instance=ExtResource("3_penys")]
 visible = false
+z_index = 2
 
-[node name="BackButton1" parent="Menus/CreditMenu" node_paths=PackedStringArray("node_to_set", "Menu") instance=ExtResource("2_5wi6m")]
+[node name="CreditMenuButton" parent="Menus/CreditMenu" node_paths=PackedStringArray("Menu") instance=ExtResource("2_5wi6m")]
 layout_mode = 0
 offset_left = 926.0
 offset_top = 845.0
@@ -103,13 +128,13 @@ offset_bottom = 875.0
 scale = Vector2(1.313, 1.313)
 text = "Back
 "
-node_to_set = NodePath("..")
 Menu = NodePath("../../..")
 
 [node name="SettingMenu" parent="Menus" instance=ExtResource("4_aur2u")]
 visible = false
+z_index = 2
 
-[node name="BackButton1" parent="Menus/SettingMenu" node_paths=PackedStringArray("node_to_set", "Menu") instance=ExtResource("2_5wi6m")]
+[node name="SettingMenuBackButton" parent="Menus/SettingMenu" node_paths=PackedStringArray("Menu") instance=ExtResource("2_5wi6m")]
 layout_mode = 0
 offset_left = 926.0
 offset_top = 845.0
@@ -118,16 +143,7 @@ offset_bottom = 875.0
 scale = Vector2(1.3127968, 1.2991267)
 text = "Back
 "
-node_to_set = NodePath("..")
 Menu = NodePath("../../..")
-
-[node name="AudioUI" type="Node" parent="."]
-
-[node name="Buttons" type="Node" parent="AudioUI"]
-
-[node name="Click" type="AudioStreamPlayer" parent="AudioUI/Buttons"]
-
-[node name="Hover" type="AudioStreamPlayer" parent="AudioUI/Buttons"]
 
 [connection signal="pressed" from="VBoxContainer/Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="VBoxContainer/Options" to="." method="_on_options_pressed"]
