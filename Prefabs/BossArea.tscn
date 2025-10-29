@@ -1,10 +1,24 @@
-[gd_scene load_steps=4 format=3 uid="uid://b62rg4sr6igl"]
+[gd_scene load_steps=8 format=3 uid="uid://b62rg4sr6igl"]
 
 [ext_resource type="Script" uid="uid://cnhjd1k5b2tef" path="res://Scripts/BossArea.gd" id="1_e2sex"]
 [ext_resource type="Texture2D" uid="uid://b4yxjr6d4km1u" path="res://icon.svg" id="2_u3b53"]
+[ext_resource type="PackedScene" uid="uid://b4t0ibb834s6k" path="res://Visuals/Enemy/BossRat01.glb" id="3_20oga"]
+[ext_resource type="Shader" uid="uid://6kugmp2xshy4" path="res://Visuals/Shaders/TestShading.gdshader" id="4_xyhyt"]
+[ext_resource type="Texture2D" uid="uid://hhov7au45wwg" path="res://Visuals/Enemy/BossRat01_palette.png" id="5_igyfd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fngkg"]
 size = Vector2(1174, 750)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wi8a6"]
+render_priority = 0
+shader = ExtResource("4_xyhyt")
+shader_parameter/albedo_texture = ExtResource("5_igyfd")
+shader_parameter/shadow_texture = ExtResource("5_igyfd")
+shader_parameter/shadow_threshold = 0.3
+shader_parameter/specular_threshold = 0.7
+shader_parameter/specular_strenght = 0.5
+shader_parameter/highlight_threshold = 1.0
+shader_parameter/only_colored_specular = true
 
 [node name="BossArea" type="Area2D"]
 script = ExtResource("1_e2sex")
@@ -17,7 +31,72 @@ shape = SubResource("RectangleShape2D_fngkg")
 position = Vector2(1353, 145)
 
 [node name="BossSprite" type="Sprite2D" parent="Boss"]
+visible = false
 texture = ExtResource("2_u3b53")
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="Boss"]
+texture_filter = 1
+offset_left = -358.0
+offset_top = -242.0
+offset_right = -158.0
+offset_bottom = -42.0
+scale = Vector2(2, 2)
+metadata/_edit_use_anchors_ = true
+
+[node name="SubViewport" type="SubViewport" parent="Boss/SubViewportContainer"]
+transparent_bg = true
+handle_input_locally = false
+canvas_item_default_texture_filter = 0
+size = Vector2i(200, 200)
+render_target_update_mode = 4
+
+[node name="BossRat01" parent="Boss/SubViewportContainer/SubViewport" instance=ExtResource("3_20oga")]
+transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, 0, 0, 0)
+
+[node name="Skeleton3D" parent="Boss/SubViewportContainer/SubViewport/BossRat01/RAT_Armature" index="0"]
+bones/0/position = Vector3(-1.110223e-16, -0.33098325, -0.052740403)
+bones/0/rotation = Quaternion(-0.0059713763, 1.1920717e-07, -7.1184175e-10, 0.9999822)
+bones/1/rotation = Quaternion(0.0031604508, -5.713776e-17, 7.5351003e-10, 0.999995)
+bones/2/rotation = Quaternion(0.08872342, 4.937449e-16, 2.1153314e-08, 0.9960563)
+bones/4/position = Vector3(0.0749876, 0.0021845687, -0.100965254)
+bones/4/rotation = Quaternion(-0.5579442, -0.15884493, -0.35482463, 0.73318905)
+bones/5/position = Vector3(-0.07498731, 0.0021845372, -0.100965366)
+bones/5/rotation = Quaternion(-0.5579447, 0.15884385, 0.35482383, 0.7331893)
+bones/6/position = Vector3(0.08458679, 0.22641972, -0.028921654)
+bones/7/rotation = Quaternion(0.6311257, -0.20541832, 0.6769381, 0.31818)
+bones/9/position = Vector3(1.065147e-07, 0.74644446, -0.44675496)
+bones/9/rotation = Quaternion(1.0058285e-07, 9.270363e-15, 2.398082e-14, 1)
+bones/10/position = Vector3(0.13612144, 0.25396883, 0.009313652)
+bones/10/rotation = Quaternion(-0.7070711, 0.0014476274, 0.70712805, 0.0042713266)
+bones/11/position = Vector3(-0.13612144, 0.25396883, 0.009313585)
+
+[node name="Tete" parent="Boss/SubViewportContainer/SubViewport/BossRat01/RAT_Armature/Skeleton3D" index="0"]
+transform = Transform3D(1, 2.842171e-14, 1.4305069e-06, 1.3981422e-06, 0.21151179, -0.9773754, -3.0256913e-07, 0.9773755, 0.21151175, -4.430043e-15, 0.44393694, -0.0017633066)
+
+[node name="Couronne" parent="Boss/SubViewportContainer/SubViewport/BossRat01/RAT_Armature/Skeleton3D/Tete" index="0"]
+surface_material_override/0 = SubResource("ShaderMaterial_wi8a6")
+
+[node name="Queue1" parent="Boss/SubViewportContainer/SubViewport/BossRat01/RAT_Armature/Skeleton3D" index="1"]
+transform = Transform3D(1, 5.684342e-14, 2.3841866e-07, -2.3714894e-07, -0.10306563, 0.99467444, 2.4572714e-08, -0.99467444, -0.10306563, 2.8452402e-15, 0.011980057, -0.21564151)
+
+[node name="queue" parent="Boss/SubViewportContainer/SubViewport/BossRat01/RAT_Armature/Skeleton3D/Queue1" index="0"]
+surface_material_override/0 = SubResource("ShaderMaterial_wi8a6")
+
+[node name="rat" parent="Boss/SubViewportContainer/SubViewport/BossRat01/RAT_Armature/Skeleton3D" index="2"]
+surface_material_override/0 = SubResource("ShaderMaterial_wi8a6")
+
+[node name="AnimationPlayer" parent="Boss/SubViewportContainer/SubViewport/BossRat01" index="1"]
+autoplay = "IDLE"
+
+[node name="Camera3D" type="Camera3D" parent="Boss/SubViewportContainer/SubViewport"]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0.97173005, 0.12164813, 0.0027929544)
+projection = 1
+size = 8.0
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Boss/SubViewportContainer/SubViewport"]
+transform = Transform3D(-0.35371977, 0.93535143, 0, -0.93535143, -0.35371977, 0, 0, 0, 1, 1.55705, 0, 0.8103646)
 
 [node name="BossCameraTarget" type="Node2D" parent="."]
 position = Vector2(829, 145)
+
+[editable path="Boss/SubViewportContainer/SubViewport/BossRat01"]

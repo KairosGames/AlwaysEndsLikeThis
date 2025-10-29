@@ -55,6 +55,7 @@ func get_input():
 
 
 func move_player(delta: float):
+	if not game.main_scene.current_world: return;
 	if game.active_dialogbox: return;
 	handle_acceleration(delta)
 	handle_gravity(delta)

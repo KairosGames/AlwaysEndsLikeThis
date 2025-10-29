@@ -19,8 +19,6 @@
 script = ExtResource("1_qxria")
 worlds = Array[PackedScene]([ExtResource("1_nhkr4"), ExtResource("3_5qxwa"), ExtResource("4_xc4hf"), ExtResource("5_6rnll"), ExtResource("6_enc0b"), ExtResource("7_hx8n4"), ExtResource("8_i0j58"), ExtResource("9_c1ier"), ExtResource("10_gyaec"), ExtResource("11_bpy1e"), ExtResource("12_p5ymy")])
 
-[node name="World" parent="." instance=ExtResource("1_nhkr4")]
-
 [node name="PlayerCamera2D" parent="." node_paths=PackedStringArray("target") instance=ExtResource("1_tr2i4")]
 target = NodePath("../Player")
 

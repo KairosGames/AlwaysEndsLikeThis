@@ -1,14 +1,22 @@
-[gd_scene load_steps=5 format=3 uid="uid://bfyh0fnymn0et"]
+[gd_scene load_steps=6 format=3 uid="uid://c0hlex2yp005y"]
 
 [ext_resource type="FontFile" uid="uid://bn4blc6gnxne4" path="res://Font/Jersey15-Regular.ttf" id="1_2rowi"]
+[ext_resource type="StyleBox" uid="uid://b13ha6n0lyflh" path="res://Scenes/Menus/Button.tres" id="2_mobw8"]
 [ext_resource type="Script" uid="uid://cd6r275ryk5yj" path="res://Scripts/buttonUi.gd" id="2_opoxm"]
-[ext_resource type="AudioStream" uid="uid://kac1y3mydeak" path="res://Music/UI/click.wav" id="3_0kwur"]
-[ext_resource type="AudioStream" uid="uid://d4nmou06scckl" path="res://Music/UI/Hover.ogg" id="4_mobw8"]
+[ext_resource type="PackedScene" uid="uid://xoyaixo8qn4o" path="res://Prefabs/NinePatchScaled.tscn" id="3_08v5i"]
+[ext_resource type="Texture2D" uid="uid://cq3i4oe7cqcu8" path="res://Sprites/Button.png" id="4_0kwur"]
 
 [node name="Start" type="Button"]
+z_index = 1
 texture_filter = 1
+mouse_default_cursor_shape = 2
 theme_override_fonts/font = ExtResource("1_2rowi")
 theme_override_font_sizes/font_size = 21
+theme_override_styles/normal = ExtResource("2_mobw8")
+theme_override_styles/pressed = ExtResource("2_mobw8")
+theme_override_styles/hover = ExtResource("2_mobw8")
+theme_override_styles/disabled = ExtResource("2_mobw8")
+theme_override_styles/focus = ExtResource("2_mobw8")
 text = "Start"
 script = ExtResource("2_opoxm")
 
@@ -18,9 +26,15 @@ volume_db = -50.0
 bus = &"SFX"
 
 [node name="Hover" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("4_mobw8")
-volume_db = -50.0
-bus = &"SFX"
 
-[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
-[connection signal="pressed" from="." to="." method="_on_pressed"]
+[node name="NinePatchScaled" parent="." instance=ExtResource("3_08v5i")]
+z_index = -1
+layout_mode = 1
+offset_left = -5.0
+offset_right = 5.0
+tile_scale = 1.3
+
+[node name="NinePatchRect" parent="NinePatchScaled" index="0"]
+texture = ExtResource("4_0kwur")
+
+[editable path="NinePatchScaled"]

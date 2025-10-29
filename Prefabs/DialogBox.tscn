@@ -41,8 +41,7 @@ grow_horizontal = 2
 grow_vertical = 0
 
 [node name="NinePatchScaled" parent="Container/Control" instance=ExtResource("2_svrph")]
-layout_mode = 0
-anchors_preset = 0
+layout_mode = 1
 
 [node name="Label" type="Label" parent="Container/Control"]
 layout_mode = 1

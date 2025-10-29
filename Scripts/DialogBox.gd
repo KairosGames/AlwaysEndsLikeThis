@@ -22,6 +22,7 @@ func write_text(text: String):
 		if current_text_index >= texts.size():
 			is_ended = true
 			dialog_ended.emit()
+			await get_tree().create_timer(0.5).timeout
 			queue_free()
 			return;
 		_write_text(texts[current_text_index])
