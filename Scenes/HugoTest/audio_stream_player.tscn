@@ -11,6 +11,7 @@ MasterPlayer = NodePath(".")
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_d4o7f")
+volume_db = -40.675
 autoplay = true
 bus = &"Music"
 

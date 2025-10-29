@@ -4,8 +4,9 @@ extends AudioStreamPlayer
 @export var SfxPlayer: AudioStreamPlayer 
 @export var MasterPlayer: AudioStreamPlayer 
 
-
-const level_music = preload("res://Music/musique_lose.wav")
+const boss_music = preload("res://Music/MusiqueBoss_8BIT.mp3")
+const level_music = preload("res://Music/MusiqueOverworld_8BIT.mp3")
+const musique_lose = preload("res://Music/musique_lose.wav")
 func _play_music(player: AudioStreamPlayer, music: AudioStream, volume: float = -10.0):
 	# Si le joueur passé est déjà en train de jouer cette musique, on s'arrête
 	if player.stream == music and player.playing:
@@ -29,8 +30,12 @@ func play_SFX(sfx: AudioStream, volume: float = -10.0):
 	# Le SfxPlayer étant déjà assigné au bus SFX dans l'éditeur, son volume sera automatiquement
 	# modulé par le volume du Bus SFX défini par le Slider.
 	
-func play_game_music() -> void:
+func play_music_overworld() -> void:
 	Call_play_music(level_music, -30.0)
+	pass
+
+func play_music_boss() -> void:
+	Call_play_music(boss_music, -30.0)
 	pass
 
 func stop_music():

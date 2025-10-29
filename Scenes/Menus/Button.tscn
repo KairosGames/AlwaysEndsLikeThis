@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://bfyh0fnymn0et"]
+[gd_scene load_steps=5 format=3 uid="uid://bfyh0fnymn0et"]
 
 [ext_resource type="FontFile" uid="uid://bn4blc6gnxne4" path="res://Font/Jersey15-Regular.ttf" id="1_2rowi"]
 [ext_resource type="Script" uid="uid://cd6r275ryk5yj" path="res://Scripts/buttonUi.gd" id="2_opoxm"]
+[ext_resource type="AudioStream" uid="uid://kac1y3mydeak" path="res://Music/UI/click.wav" id="3_0kwur"]
+[ext_resource type="AudioStream" uid="uid://d4nmou06scckl" path="res://Music/UI/Hover.ogg" id="4_mobw8"]
 
 [node name="Start" type="Button"]
 texture_filter = 1
@@ -11,9 +13,14 @@ text = "Start"
 script = ExtResource("2_opoxm")
 
 [node name="Click" type="AudioStreamPlayer" parent="."]
-volume_db = -30.969
+stream = ExtResource("3_0kwur")
+volume_db = -50.0
+bus = &"SFX"
 
 [node name="Hover" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_mobw8")
+volume_db = -50.0
+bus = &"SFX"
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="pressed" from="." to="." method="_on_pressed"]
