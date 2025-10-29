@@ -1,5 +1,7 @@
 class_name Player extends CharacterBody2D
 
+@onready var game: Game = $/root/Game
+
 @export_category("References")
 @export var ray_cast: RayCast2D
 @export var player3D: Node3D
@@ -42,6 +44,7 @@ func get_input():
 
 
 func move_player(delta: float):
+	if game.active_dialogbox: return;
 	handle_acceleration(delta)
 	handle_gravity(delta)
 	set_player3D_rotation()
