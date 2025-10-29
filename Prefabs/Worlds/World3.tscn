@@ -1,0 +1,76 @@
+[gd_scene load_steps=9 format=3 uid="uid://xm3pue23rkop"]
+
+[ext_resource type="Script" uid="uid://c3y2meyoymn72" path="res://Scripts/World.gd" id="1_xt6q6"]
+[ext_resource type="Texture2D" uid="uid://mmg1ht5p3lhu" path="res://Visuals/Parralax/background.png" id="2_6076x"]
+[ext_resource type="Texture2D" uid="uid://lsc5fuvcgp2q" path="res://Visuals/Parralax/Back3.png" id="3_tgi5g"]
+[ext_resource type="Texture2D" uid="uid://cx3pjrf1lp18u" path="res://Visuals/Parralax/Back2.png" id="4_1tmma"]
+[ext_resource type="Texture2D" uid="uid://d7y6bniphboy" path="res://Visuals/Parralax/Back1.png" id="5_seewo"]
+[ext_resource type="PackedScene" uid="uid://btvrpn605y0cc" path="res://Prefabs/Level.tscn" id="6_tqrxe"]
+[ext_resource type="PackedScene" uid="uid://ijstcswtyvgp" path="res://Prefabs/Enemy.tscn" id="7_64tod"]
+[ext_resource type="PackedScene" uid="uid://b62rg4sr6igl" path="res://Prefabs/BossArea.tscn" id="8_3jmoo"]
+
+[node name="World" type="Node2D"]
+script = ExtResource("1_xt6q6")
+player_health = 10
+player_attack = 0
+fairy_text = "Au temps pour moi… Tu ne vas pas aller loin si tu ne peux pas guérir tes blessures. Voici une potion qui te redonnera de l’énergie à coup sûr."
+boss_text = "Re ! Tu es bien téméraire, l’ami. Je dois dire que tes chances me paraissent minces… Mais je te souhaite à nouveau bonne chance. Tiens bon."
+
+[node name="PlayerSpawn" type="Node2D" parent="."]
+position = Vector2(232, 932)
+
+[node name="Background" type="Node2D" parent="."]
+position = Vector2(960, 540)
+
+[node name="Parallax2D" type="Parallax2D" parent="Background"]
+scroll_scale = Vector2(0, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Background/Parallax2D"]
+texture = ExtResource("2_6076x")
+
+[node name="Parallax2D2" type="Parallax2D" parent="Background"]
+scroll_scale = Vector2(0.25, 0)
+repeat_size = Vector2(3840, 0)
+repeat_times = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Background/Parallax2D2"]
+texture = ExtResource("3_tgi5g")
+
+[node name="Parallax2D3" type="Parallax2D" parent="Background"]
+scroll_scale = Vector2(0.5, 0)
+repeat_size = Vector2(3840, 0)
+repeat_times = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Background/Parallax2D3"]
+texture = ExtResource("4_1tmma")
+
+[node name="Parallax2D4" type="Parallax2D" parent="Background"]
+scroll_scale = Vector2(0.75, 0)
+repeat_size = Vector2(3840, 0)
+repeat_times = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Background/Parallax2D4"]
+texture = ExtResource("5_seewo")
+
+[node name="Level" parent="." instance=ExtResource("6_tqrxe")]
+position = Vector2(693, -733)
+scale = Vector2(2, 2)
+
+[node name="Enemy2" parent="." instance=ExtResource("7_64tod")]
+position = Vector2(2611, 1028)
+
+[node name="Enemy5" parent="." instance=ExtResource("7_64tod")]
+position = Vector2(4477, 1037)
+
+[node name="Enemy3" parent="." instance=ExtResource("7_64tod")]
+position = Vector2(6469, 1280)
+
+[node name="Enemy4" parent="." instance=ExtResource("7_64tod")]
+position = Vector2(8992, 2052)
+
+[node name="Enemy6" parent="." instance=ExtResource("7_64tod")]
+position = Vector2(3516, 883)
+
+[node name="BossArea" parent="." instance=ExtResource("8_3jmoo")]
+position = Vector2(11146, 1534)
+monitoring = false

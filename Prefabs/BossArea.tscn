@@ -10,6 +10,7 @@ size = Vector2(1174, 750)
 script = ExtResource("1_e2sex")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(591, -9)
 shape = SubResource("RectangleShape2D_fngkg")
 
 [node name="Boss" type="Node2D" parent="."]
