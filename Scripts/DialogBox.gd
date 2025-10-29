@@ -9,15 +9,18 @@ func set_name_label(value: String):
 	
 var texts : PackedStringArray
 var current_text_index := 0
+var is_ended = false
 func write_text(text: String):
 	texts = text.split("/")
 	_write_text(texts[0])
 	dialog_input.connect(func():
+		if is_ended: return;
 		if is_writing_dialog: 
 			dialog_speed = 5.0
 			return
 		current_text_index += 1
 		if current_text_index >= texts.size():
+			is_ended = true
 			dialog_ended.emit()
 			queue_free()
 			return;
