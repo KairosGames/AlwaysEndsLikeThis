@@ -2,11 +2,15 @@ class_name DialogBox extends CanvasLayer
 
 @onready var label: Label = $Container/Control/Label
 @onready var arrow: TextureRect = $Container/Control/ArrowControl/Arrow
+@onready var name_label: Label = $Container/Control/MarginContainer/NameLabel
 
 func _ready():
 	write_text("Mais c’est pas possible, comment ça se fait qu’il te batte à chaque fois ?/Je n’ai JAMAIS vu ça !/Sans vouloir remettre en doute tes compétences, tu es sûr que tu te sens capable de continuer ?... /Prends cette grosse épée, on ne fait pas mieux dans la région, je suis sûr que c’est ce qu’il te faut."
 )
 
+func set_name_label(value: String):
+	name_label.text = value
+	
 var texts : PackedStringArray
 var current_text_index := 0
 func write_text(text: String):
