@@ -13,7 +13,7 @@
 script = ExtResource("1_leyby")
 
 [node name="PlayerSpawn" type="Node2D" parent="."]
-position = Vector2(18038, 1279)
+position = Vector2(232, 932)
 
 [node name="Background" type="Node2D" parent="."]
 position = Vector2(960, 540)
@@ -69,3 +69,4 @@ position = Vector2(2937, 945)
 
 [node name="BossArea" parent="." instance=ExtResource("8_of8cc")]
 position = Vector2(20289, 683)
+monitoring = false

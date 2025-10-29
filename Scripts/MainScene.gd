@@ -1,5 +1,6 @@
 class_name MainScene extends Node2D
 
+@onready var game: Game = $/root/Game
 @onready var player: Player = $Player
 @onready var current_world: World = $World
 @onready var player_camera_2d: PlayerCamera2D = $PlayerCamera2D
@@ -7,12 +8,17 @@ class_name MainScene extends Node2D
 @export var worlds : Array[PackedScene]
 var current_world_index = 0
 
-func _ready() -> void:
-	load_world(worlds[0])
-
+func load_next_worl():
+	current_world_index += 1
+	load_world(worlds[current_world_index])
+	
 func load_world(world: PackedScene):
+	await game.scene_transition.show_transition()
 	var new_world := world.instantiate() as World
 	current_world.queue_free()
 	add_child(new_world)
+	player.set_visible(false)
 	current_world = new_world
 	player.global_position = new_world.player_spawn.global_position
+	player.set_visible(true)
+	game.scene_transition.hide_transition()
