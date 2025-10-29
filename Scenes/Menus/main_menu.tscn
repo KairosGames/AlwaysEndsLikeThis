@@ -9,7 +9,7 @@
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_aur2u"]
 bg_color = Color(0.15294118, 0.15294118, 0.15294118, 1)
 
-[node name="MainMenu" type="Control" node_paths=PackedStringArray("_start_button", "_options_button", "_credits_button", "_exit_button")]
+[node name="MainMenu" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -17,10 +17,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_pha2q")
-_start_button = NodePath("VBoxContainer/Start")
-_options_button = NodePath("VBoxContainer/Options")
-_credits_button = NodePath("VBoxContainer/Credits")
-_exit_button = NodePath("VBoxContainer/Exit")
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 1
