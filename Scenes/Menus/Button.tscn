@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://bfyh0fnymn0et"]
+
+[ext_resource type="FontFile" uid="uid://bn4blc6gnxne4" path="res://Font/Jersey15-Regular.ttf" id="1_2rowi"]
+[ext_resource type="Script" uid="uid://cd6r275ryk5yj" path="res://Scripts/buttonUi.gd" id="2_opoxm"]
+
+[node name="Start" type="Button"]
+texture_filter = 1
+theme_override_fonts/font = ExtResource("1_2rowi")
+theme_override_font_sizes/font_size = 21
+text = "Start"
+script = ExtResource("2_opoxm")
+
+[node name="Click" type="AudioStreamPlayer" parent="."]
+volume_db = -30.969
+
+[node name="Hover" type="AudioStreamPlayer" parent="."]
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="pressed" from="." to="." method="_on_pressed"]

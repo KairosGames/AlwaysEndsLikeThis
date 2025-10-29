@@ -18,7 +18,5 @@ func load_world(world: PackedScene):
 	current_world.queue_free()
 	current_world = new_world
 	add_child(new_world)
-	player.set_visible(false)
 	player.global_position = new_world.player_spawn.global_position
-	player.set_visible(true)
 	game.scene_transition.hide_transition()
