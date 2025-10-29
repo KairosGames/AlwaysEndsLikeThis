@@ -57,19 +57,53 @@ position = Vector2(693, -733)
 scale = Vector2(2, 2)
 
 [node name="Enemy2" parent="." instance=ExtResource("7_ti6rt")]
-position = Vector2(1354, 1087)
+position = Vector2(1438, 1099)
 
 [node name="Enemy3" parent="." instance=ExtResource("7_ti6rt")]
-position = Vector2(2052, 925)
+position = Vector2(4737, 1102)
+metadata/_edit_group_ = true
+
+[node name="Enemy10" parent="." instance=ExtResource("7_ti6rt")]
+position = Vector2(6322, 1358)
+metadata/_edit_group_ = true
+
+[node name="Enemy11" parent="." instance=ExtResource("7_ti6rt")]
+position = Vector2(6752, 1361)
+metadata/_edit_group_ = true
+
+[node name="Enemy12" parent="." instance=ExtResource("7_ti6rt")]
+position = Vector2(9529, 1999)
+metadata/_edit_group_ = true
+
+[node name="Enemy13" parent="." instance=ExtResource("7_ti6rt")]
+position = Vector2(9230, 2106)
+metadata/_edit_group_ = true
+
+[node name="Enemy14" parent="." instance=ExtResource("7_ti6rt")]
+position = Vector2(8414, 1865)
+metadata/_edit_group_ = true
+
+[node name="Enemy15" parent="." instance=ExtResource("7_ti6rt")]
+position = Vector2(10557, 1748)
+metadata/_edit_group_ = true
 
 [node name="Enemy4" parent="." instance=ExtResource("7_ti6rt")]
-position = Vector2(2760, 1016)
+position = Vector2(1805, 1745)
+
+[node name="Enemy7" parent="." instance=ExtResource("7_ti6rt")]
+position = Vector2(2631, 1108)
+
+[node name="Enemy8" parent="." instance=ExtResource("7_ti6rt")]
+position = Vector2(3454, 971)
+
+[node name="Enemy9" parent="." instance=ExtResource("7_ti6rt")]
+position = Vector2(4707, 1628)
 
 [node name="Enemy5" parent="." instance=ExtResource("7_ti6rt")]
-position = Vector2(3306, 925)
+position = Vector2(5184, 1240)
 
 [node name="Enemy6" parent="." instance=ExtResource("7_ti6rt")]
-position = Vector2(2937, 945)
+position = Vector2(3003, 2013)
 
 [node name="BossArea" type="Area2D" parent="."]
 position = Vector2(20289, 683)
