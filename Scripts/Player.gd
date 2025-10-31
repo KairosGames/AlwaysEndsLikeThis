@@ -150,6 +150,7 @@ func die():
 		is_alive = false
 		animation_player.speed_scale = 2.0
 		animation_player.play("DEATH")
+		health_bar.value = 0
 		await get_tree().create_timer(1.0).timeout
 		await game.scene_transition.show_transition()
 		game.main_scene.load_world(game.main_scene.worlds[game.main_scene.current_world_index])
